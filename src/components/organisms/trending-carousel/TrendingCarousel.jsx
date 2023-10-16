@@ -24,7 +24,7 @@ const TrendingCarousel = () => {
     <>
       <div className={styles["container"]}>
         <CategoryTitle text={"Trending"}>
-          <img src="/svg/trending.svg" alt="" />
+          <img src="/svg/trending.svg" alt="Trending" />
         </CategoryTitle>
 
         <div className={styles["slider-wrapper"]}>
