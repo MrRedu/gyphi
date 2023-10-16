@@ -4,42 +4,9 @@
     gap: 8px;
 }
 
-.header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.title-link {
-    display: flex;
-    gap: 8px;
-    min-height: 24px;
-    text-decoration: none;
-    color: var(--c-whywhite-300)
-}
-
-.title-link:hover {
-    text-decoration: underline;
-}
-
-.title {
-    font-size: var(--f-s-base);
-    font-weight: var(--f-bold);
-}
-
-.all-the-gifs-link {
-    display: flex;
-    align-items: center;
-    min-height: 24px;
-    text-decoration: none;
-    color: var(--c-gray-500)
-}
-
 .slider-wrapper {
     position: relative;
 }
-
-.all-the-gifs .all-the-gifs-text {}
 
 .gifs-container {
     display: flex;

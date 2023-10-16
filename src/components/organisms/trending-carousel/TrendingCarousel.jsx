@@ -2,7 +2,7 @@ import { useEffect, useRef } from "react";
 import { useTrending } from "@/hooks/useTrending";
 import styles from "./TrendingCarousel.module.css";
 import { ChevronRight, ChevronLeft } from "lucide-react";
-import { rightChevron } from "@/libs/lucide";
+import { CategoryTitle } from "@/components/molecules/SearchBar/category-title/CategoryTitle";
 
 const TrendingCarousel = () => {
   const { trending, loading, error, getTrending } = useTrending();
@@ -23,19 +23,9 @@ const TrendingCarousel = () => {
   return (
     <>
       <div className={styles["container"]}>
-        <div className={styles["header"]}>
-          <a href="#" className={styles["title-link"]}>
-            <img src="/svg/trending.svg" alt="" />
-            <h2 className={styles["title"]}>Trending</h2>
-          </a>
-          <a href="" className={styles["all-the-gifs-link"]}>
-            <p className={styles["all-the-gifs-text"]}>All the GIFs</p>
-            <ChevronRight
-              size={rightChevron.size}
-              strokeWidth={rightChevron.strokeWidth}
-            />
-          </a>
-        </div>
+        <CategoryTitle text={"Trending"}>
+          <img src="/svg/trending.svg" alt="" />
+        </CategoryTitle>
 
         <div className={styles["slider-wrapper"]}>
           <button
