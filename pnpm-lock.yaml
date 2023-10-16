@@ -5,6 +5,9 @@ settings:
   excludeLinksFromLockfile: false
 
 dependencies:
+  lucide-react:
+    specifier: 0.287.0
+    version: 0.287.0(react@18.2.0)
   minireset.css:
     specifier: 0.0.7
     version: 0.0.7
@@ -1403,6 +1406,14 @@ packages:
     hasBin: true
     dependencies:
       js-tokens: 4.0.0
+
+  /lucide-react@0.287.0(react@18.2.0):
+    resolution: {integrity: sha512-auxP2bTGiMoELzX+6ItTeNzLmhGd/O+PHBsrXV2YwPXYCxarIFJhiMOSzFT9a1GWeYPSZtnWdLr79IVXr/5JqQ==}
+    peerDependencies:
+      react: ^16.5.1 || ^17.0.0 || ^18.0.0
+    dependencies:
+      react: 18.2.0
+    dev: false
 
   /minimatch@3.1.2:
     resolution: {integrity: sha512-J7p63hRiAjw1NDEww1W7i37+ByIrOWO5XQQAzZ3VOcL0PNybwpfmV/N05zFAzwQ9USyEcX6t3UO+K5aqBQOIHw==}

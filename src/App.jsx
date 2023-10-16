@@ -1,14 +1,12 @@
-import { useEffect } from "react";
-import { getGifsByQuery } from "./services/gifs";
+import TrendingCarousel from "./components/organisms/trending-carousel/TrendingCarousel";
+import { Layout } from "./layout";
 
 const App = () => {
-  useEffect(() => {
-    getGifsByQuery({ query: "react" }).then(console.log);
-  }, []);
-
   return (
     <>
-      <h1>{`</App>`}</h1>
+      <Layout>
+        <TrendingCarousel />
+      </Layout>
     </>
   );
 };

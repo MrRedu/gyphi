@@ -1,0 +1,8 @@
+.header {
+    display: flex;
+}
+
+.title {
+    font-size: var(--f-s-lg);
+    font-weight: var(--f-bold);
+}
