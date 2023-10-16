@@ -3,6 +3,7 @@ import { useTrending } from "../../../hooks/useTrending";
 import styles from "./TrendingCarousel.module.css";
 import { ChevronRight } from "lucide-react";
 import { useRef } from "react";
+import { rightChevron } from "../../../libs/lucide";
 
 const TrendingCarousel = () => {
   const { trending, loading, error, getTrending } = useTrending();
@@ -30,7 +31,10 @@ const TrendingCarousel = () => {
           </a>
           <a href="" className={styles["all-the-gifs-link"]}>
             <p className={styles["all-the-gifs-text"]}>All the GIFs</p>
-            <ChevronRight size={24} strokeWidth={4} />
+            <ChevronRight
+              size={rightChevron.size}
+              strokeWidth={rightChevron.strokeWidth}
+            />
           </a>
         </div>
         <button onClick={handleClickRight}>DERECHA</button>
