@@ -1,7 +1,7 @@
 import { useEffect, useRef } from "react";
 import { useTrending } from "@/hooks/useTrending";
 import styles from "./TrendingCarousel.module.css";
-import { ChevronRight } from "lucide-react";
+import { ChevronRight, ChevronLeft } from "lucide-react";
 import { rightChevron } from "@/libs/lucide";
 
 const TrendingCarousel = () => {
@@ -36,19 +36,33 @@ const TrendingCarousel = () => {
             />
           </a>
         </div>
-        <button onClick={handleClickRight}>DERECHA</button>
-        <div className={styles["gifs-container"]} ref={containerRef}>
-          {loading && <h2>Loading...</h2>}
-          {error && <h2>Error: {error}</h2>}
 
-          {trending &&
-            trending.map(({ id, url, title }) => (
-              <div key={id} className={styles["trending-gif"]}>
-                <img className={styles["gif-img"]} src={url} alt={title} />
-              </div>
-            ))}
+        <div className={styles["slider-wrapper"]}>
+          <button
+            className={`${styles["button-slider"]} ${styles["left"]}`}
+            onClick={handleClickLeft}
+          >
+            <ChevronLeft color="white" />
+          </button>
+          <button
+            className={`${styles["button-slider"]} ${styles["right"]}`}
+            onClick={handleClickRight}
+          >
+            <ChevronRight color="white" />
+          </button>
+
+          <div className={styles["gifs-container"]} ref={containerRef}>
+            {loading && <h2>Loading...</h2>}
+            {error && <h2>Error: {error}</h2>}
+
+            {trending &&
+              trending.map(({ id, url, title }) => (
+                <div key={id} className={styles["trending-gif"]}>
+                  <img className={styles["gif-img"]} src={url} alt={title} />
+                </div>
+              ))}
+          </div>
         </div>
-        <button onClick={handleClickLeft}>IZQUIERDA</button>
       </div>
     </>
   );
