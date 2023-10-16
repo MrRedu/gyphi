@@ -1,4 +1,4 @@
-import { SearchBar } from "../../../molecules/SearchBar/SearchBar";
+import { SearchBar } from "@/components/molecules/SearchBar/SearchBar";
 import styles from "./Header.module.css";
 export const Header = () => {
   return (

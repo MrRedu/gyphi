@@ -1,5 +1,4 @@
 import styles from "./SearchBar.module.css";
-
 import { Search } from "lucide-react";
 
 export const SearchBar = () => {

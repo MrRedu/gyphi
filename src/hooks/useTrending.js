@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { getTrendingGifs } from "../services/gifs";
+import { getTrendingGifs } from "@/services/gifs";
 
 export function useTrending() {
   const [trending, setTrending] = useState([]);

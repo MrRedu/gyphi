@@ -1,4 +1,4 @@
-import TrendingCarousel from "./components/organisms/trending-carousel/TrendingCarousel";
+import TrendingCarousel from "@/components/organisms/trending-carousel/TrendingCarousel";
 import { Layout } from "./layout";
 
 const App = () => {

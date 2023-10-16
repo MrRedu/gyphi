@@ -1,9 +1,8 @@
-import { useEffect } from "react";
-import { useTrending } from "../../../hooks/useTrending";
+import { useEffect, useRef } from "react";
+import { useTrending } from "@/hooks/useTrending";
 import styles from "./TrendingCarousel.module.css";
 import { ChevronRight } from "lucide-react";
-import { useRef } from "react";
-import { rightChevron } from "../../../libs/lucide";
+import { rightChevron } from "@/libs/lucide";
 
 const TrendingCarousel = () => {
   const { trending, loading, error, getTrending } = useTrending();
