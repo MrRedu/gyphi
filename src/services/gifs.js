@@ -21,7 +21,7 @@ export const getGifsByQuery = async ({ query }) => {
 };
 
 export const getTredingGifs = async () => {
-  const URL = `https://api.giphy.com/v1/gifs/trending?api_key=${API_KEY}&limit=15&rating=g`;
+  const URL = `https://api.giphy.com/v1/gifs/trending?api_key=${API_KEY}&limit=25&rating=g`;
 
   const response = await fetch(URL);
   const { data } = await response.json();
