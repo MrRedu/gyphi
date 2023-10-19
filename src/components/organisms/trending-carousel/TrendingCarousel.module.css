@@ -4,38 +4,9 @@
     gap: 8px;
 }
 
-.header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+.slider-wrapper {
+    position: relative;
 }
-
-.title-link {
-    display: flex;
-    gap: 8px;
-    min-height: 24px;
-    text-decoration: none;
-    color: var(--c-whywhite-300)
-}
-
-.title-link:hover {
-    text-decoration: underline;
-}
-
-.title {
-    font-size: var(--f-s-base);
-    font-weight: var(--f-bold);
-}
-
-.all-the-gifs-link {
-    display: flex;
-    align-items: center;
-    min-height: 24px;
-    text-decoration: none;
-    color: var(--c-gray-500)
-}
-
-.all-the-gifs .all-the-gifs-text {}
 
 .gifs-container {
     display: flex;
@@ -48,7 +19,31 @@
     height: 180px;
 
     scroll-behavior: smooth;
+}
 
+.button-slider {
+    position: absolute;
+    height: 100%;
+    width: 32px;
+
+    background-color: transparent;
+    border: none;
+}
+
+.button-slider.left {
+    z-index: 250;
+    left: 0;
+
+    background: rgb(18, 18, 18);
+    background: linear-gradient(90deg, rgba(18, 18, 18, 1) 0%, rgba(0, 0, 0, 0) 100%);
+}
+
+.button-slider.right {
+    z-index: 250;
+    right: 0;
+
+    background: rgb(18, 18, 18);
+    background: linear-gradient(270deg, rgba(18, 18, 18, 1) 0%, rgba(0, 0, 0, 0) 100%);
 }
 
 .trending-gif {

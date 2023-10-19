@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { getTredingGifs } from "../services/gifs";
+import { getTrendingGifs } from "@/services/gifs";
 
 export function useTrending() {
   const [trending, setTrending] = useState([]);
@@ -9,7 +9,7 @@ export function useTrending() {
   const getTrending = async () => {
     try {
       setLoading(true);
-      const trendingGifs = await getTredingGifs();
+      const trendingGifs = await getTrendingGifs();
       setTrending(trendingGifs);
     } catch (error) {
       setError("No se pudieron conseguir los gifs");
