@@ -17,7 +17,7 @@ export const getGifsByQuery = async ({ query }) => {
     return await data.map((gif) => ({
       id: gif.id,
       title: gif.title,
-      image: gif.images.downsized_medium.url,
+      image: gif.images.fixed_height_downsampled.url,
       url: gif.url,
     }));
   } catch (err) {
@@ -34,7 +34,7 @@ export const getTrendingGifs = async () => {
   return data.map((gif) => ({
     id: gif.id,
     title: gif.title,
-    image: gif.images.downsized_medium.url,
+    image: gif.images.fixed_height_downsampled.url,
     url: gif.url,
   }));
 };
