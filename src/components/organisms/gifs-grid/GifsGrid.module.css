@@ -4,6 +4,7 @@
     display: flex;
     flex-direction: column;
     gap: 8px;
+    margin-top: 16px;
 }
 
 .gifs-container {
@@ -18,10 +19,29 @@
 .gif-container {
     width: 100%;
     height: 160px;
+
+    position: relative;
 }
 
-.gif {
+.gif-container:hover .copy-btn {
+    display: block;
+}
+
+.gif-img {
     width: 100%;
     height: 100%;
     object-fit: cover;
+}
+
+.copy-btn {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    background-color: transparent;
+
+    color: var(--c-whywhite-300);
+    border: none;
+    cursor: pointer;
+
+    display: none;
 }

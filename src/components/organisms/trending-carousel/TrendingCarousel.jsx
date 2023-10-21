@@ -6,6 +6,8 @@ import styles from "./TrendingCarousel.module.css";
 import { CategoryTitle } from "@/components/molecules/category-title/CategoryTitle";
 import { ChevronRight, ChevronLeft } from "lucide-react";
 import { Loader } from "@/components/atoms/loader/Loader";
+import { Link } from "lucide-react";
+import { copyToClipboard } from "@/libs/utils";
 
 export const TrendingCarousel = () => {
   const { trending, loading, error, getTrending } = useTrending();
@@ -21,6 +23,10 @@ export const TrendingCarousel = () => {
   };
   const handleClickLeft = () => {
     containerRef.current.scrollBy(-500, 0);
+  };
+
+  const handleCopy = (text) => {
+    copyToClipboard(text);
   };
 
   return (
@@ -49,9 +55,15 @@ export const TrendingCarousel = () => {
             {error && <h2>Error: {error}</h2>}
 
             {trending &&
-              trending.map(({ id, url, title }) => (
+              trending.map(({ id, image, title, url }) => (
                 <div key={id} className={styles["trending-gif"]}>
-                  <img className={styles["gif-img"]} src={url} alt={title} />
+                  <img className={styles["gif-img"]} src={image} alt={title} />
+                  <button
+                    className={styles["copy-btn"]}
+                    onClick={() => handleCopy(url)}
+                  >
+                    <Link size={20} />
+                  </button>
                 </div>
               ))}
           </div>
