@@ -17,7 +17,8 @@ export const getGifsByQuery = async ({ query }) => {
     return await data.map((gif) => ({
       id: gif.id,
       title: gif.title,
-      url: gif.images.downsized_medium.url,
+      image: gif.images.downsized_medium.url,
+      url: gif.url,
     }));
   } catch (err) {
     throw new Error("Something went wrong");
@@ -29,9 +30,11 @@ export const getTrendingGifs = async () => {
 
   const response = await fetch(URL);
   const { data } = await response.json();
+
   return data.map((gif) => ({
     id: gif.id,
     title: gif.title,
-    url: gif.images.downsized_medium.url,
+    image: gif.images.downsized_medium.url,
+    url: gif.url,
   }));
 };
