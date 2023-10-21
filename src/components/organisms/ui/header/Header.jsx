@@ -1,3 +1,4 @@
+import ProTypes from "prop-types";
 import styles from "./Header.module.css";
 export const Header = ({ children }) => {
   return (
@@ -8,4 +9,7 @@ export const Header = ({ children }) => {
       {children}
     </>
   );
+};
+Header.propTypes = {
+  children: ProTypes.node.isRequired,
 };

@@ -1,22 +1,18 @@
 import ProTypes from "prop-types";
 
-import { CategoryTitle } from "@/components/molecules/SearchBar/category-title/CategoryTitle";
+import { useEffect } from "react";
+import { useGifs } from "@/hooks/useGifs";
+
 import styles from "./GifsGrid.module.css";
 
-import { useEffect } from "react";
-import { useState } from "react";
-import { getGifsByQuery } from "@/services/gifs";
+import { CategoryTitle } from "@/components/molecules/SearchBar/category-title/CategoryTitle";
+
 
 export const GifsGrid = ({ category }) => {
-  const [gifs, setGifs] = useState([]);
-
-  const getGifs = async () => {
-    const newGifs = await getGifsByQuery({ query: category });
-    setGifs(newGifs);
-  };
+  const { gifs, error, loading, getGifs } = useGifs();
 
   useEffect(() => {
-    getGifs();
+    getGifs({ query: category });
   }, []);
 
   return (
@@ -25,6 +21,8 @@ export const GifsGrid = ({ category }) => {
 
       <div className={styles["container"]}>
         <div className={styles["gifs-container"]}>
+          {loading && <p>Cargando...</p>}
+          {error && <p>{error}</p>}
           {gifs &&
             // gifs.slice(0, 12).map(({ url, title, id }) => {
             gifs.map(({ url, title, id }) => {
@@ -38,4 +36,8 @@ export const GifsGrid = ({ category }) => {
       </div>
     </>
   );
+};
+
+GifsGrid.propTypes = {
+  category: ProTypes.string.isRequired,
 };

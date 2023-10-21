@@ -1,3 +1,4 @@
+import ProTypes from "prop-types";
 export const Footer = () => {
   return (
     <footer>
@@ -5,3 +6,4 @@ export const Footer = () => {
     </footer>
   );
 };
+Footer.propTypes = {};

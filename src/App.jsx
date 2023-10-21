@@ -1,8 +1,10 @@
-import { Layout } from "./layout";
-import TrendingCarousel from "@/components/organisms/trending-carousel/TrendingCarousel";
-// import { ArtistsCarousel } from "./components/organisms/artists-carousel/ArtistsCarousel";
 import { useState } from "react";
-import { Category } from "./components/molecules/category/Category";
+
+import { Layout } from "./layout";
+import { TrendingCarousel } from "@/components/organisms/trending-carousel/TrendingCarousel";
+import { Category } from "@/components/molecules/category/Category";
+
+// import { ArtistsCarousel } from "./components/organisms/artists-carousel/ArtistsCarousel";
 
 const App = () => {
   const [gifsCategory, setGifsCategory] = useState([]);
