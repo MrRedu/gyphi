@@ -4,8 +4,6 @@ import { Layout } from "./layout";
 import { TrendingCarousel } from "@/components/organisms/trending-carousel/TrendingCarousel";
 import { Category } from "@/components/molecules/category/Category";
 
-// import { ArtistsCarousel } from "./components/organisms/artists-carousel/ArtistsCarousel";
-
 const App = () => {
   const [gifsCategory, setGifsCategory] = useState([]);
 

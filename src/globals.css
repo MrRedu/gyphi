@@ -27,5 +27,6 @@ body {
     color: #F7F7F7;
     font-family: 'Atkinson Hyperlegible', sans-serif;
     max-width: 1080px;
+    padding: 0 8px;
     margin: 0 auto;
 }

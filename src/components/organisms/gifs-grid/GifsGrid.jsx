@@ -5,7 +5,7 @@ import { useGifs } from "@/hooks/useGifs";
 
 import styles from "./GifsGrid.module.css";
 
-import { CategoryTitle } from "@/components/molecules/SearchBar/category-title/CategoryTitle";
+import { CategoryTitle } from "@/components/molecules/category-title/CategoryTitle";
 import { Loader } from "@/components/atoms/loader/Loader";
 
 export const GifsGrid = ({ category }) => {
@@ -17,9 +17,9 @@ export const GifsGrid = ({ category }) => {
 
   return (
     <>
-      <CategoryTitle text={category} />
-
       <div className={styles["container"]}>
+        <CategoryTitle text={category} />
+
         <div className={styles["gifs-container"]}>
           {loading && <Loader />}
           {error && <p>{error}</p>}

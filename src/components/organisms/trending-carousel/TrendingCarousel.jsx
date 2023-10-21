@@ -3,7 +3,7 @@ import { useTrending } from "@/hooks/useTrending";
 
 import styles from "./TrendingCarousel.module.css";
 
-import { CategoryTitle } from "@/components/molecules/SearchBar/category-title/CategoryTitle";
+import { CategoryTitle } from "@/components/molecules/category-title/CategoryTitle";
 import { ChevronRight, ChevronLeft } from "lucide-react";
 import { Loader } from "@/components/atoms/loader/Loader";
 

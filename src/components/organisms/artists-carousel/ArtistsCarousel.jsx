@@ -1,4 +1,4 @@
-import { CategoryTitle } from "@/components/molecules/SearchBar/category-title/CategoryTitle";
+import { CategoryTitle } from "@/components/molecules/category-title/CategoryTitle";
 import styles from "./ArtistsCarousel.module.css";
 
 export const ArtistsCarousel = () => {
