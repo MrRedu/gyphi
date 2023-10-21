@@ -1,10 +1,12 @@
 import { useEffect, useRef } from "react";
 import { useTrending } from "@/hooks/useTrending";
-import styles from "./TrendingCarousel.module.css";
-import { ChevronRight, ChevronLeft } from "lucide-react";
-import { CategoryTitle } from "@/components/molecules/SearchBar/category-title/CategoryTitle";
 
-const TrendingCarousel = () => {
+import styles from "./TrendingCarousel.module.css";
+
+import { CategoryTitle } from "@/components/molecules/SearchBar/category-title/CategoryTitle";
+import { ChevronRight, ChevronLeft } from "lucide-react";
+
+export const TrendingCarousel = () => {
   const { trending, loading, error, getTrending } = useTrending();
 
   useEffect(() => {
@@ -57,5 +59,3 @@ const TrendingCarousel = () => {
     </>
   );
 };
-
-export default TrendingCarousel;

@@ -28,6 +28,8 @@
 
     background-color: transparent;
     border: none;
+
+    cursor: pointer;
 }
 
 .button-slider.left {

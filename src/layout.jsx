@@ -2,11 +2,14 @@ import ProTypes from "prop-types";
 
 import { Header } from "./components/organisms/ui/header/Header";
 import { Footer } from "./components/organisms/ui/footer/Footer";
+import { SearchBar } from "./components/molecules/SearchBar/SearchBar";
 
-export const Layout = ({ children }) => {
+export const Layout = ({ addCategory, children }) => {
   return (
     <>
-      <Header />
+      <Header>
+        <SearchBar addCategory={addCategory} />
+      </Header>
       {children}
       <Footer />
     </>
@@ -14,5 +17,6 @@ export const Layout = ({ children }) => {
 };
 
 Layout.propTypes = {
+  addCategory: ProTypes.func,
   children: ProTypes.node.isRequired,
 };
