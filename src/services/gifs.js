@@ -1,5 +1,9 @@
 const API_KEY = `Zddo3H95jRw92tGnUjbAQb1QN6VEk6gN`;
 
+// TODO: add Controller/Abort/Signal
+// TODO: add Controller/Abort/Signal
+// TODO: add Controller/Abort/Signal
+
 export const getGifsByQuery = async ({ query }) => {
   if (!query) return;
   if (query.length < 3) return;

@@ -3,7 +3,6 @@ import ProTypes from "prop-types";
 import { useState } from "react";
 import styles from "./SearchBar.module.css";
 import { Search } from "lucide-react";
-// import { useEffect } from "react";
 
 export const SearchBar = ({ addCategory }) => {
   const [query, setQuery] = useState("");
