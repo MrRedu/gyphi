@@ -1,3 +1,1 @@
 # Gyphi
-
-![Presentation](image.png)
