@@ -5,6 +5,7 @@ import styles from "./TrendingCarousel.module.css";
 
 import { CategoryTitle } from "@/components/molecules/SearchBar/category-title/CategoryTitle";
 import { ChevronRight, ChevronLeft } from "lucide-react";
+import { Loader } from "@/components/atoms/loader/Loader";
 
 export const TrendingCarousel = () => {
   const { trending, loading, error, getTrending } = useTrending();
@@ -44,7 +45,7 @@ export const TrendingCarousel = () => {
           </button>
 
           <div className={styles["gifs-container"]} ref={containerRef}>
-            {loading && <h2>Loading...</h2>}
+            {loading && <Loader />}
             {error && <h2>Error: {error}</h2>}
 
             {trending &&
