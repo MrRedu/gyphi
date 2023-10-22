@@ -16,7 +16,10 @@ export const Layout = ({ addCategory, children }) => {
       <Toaster
         toastOptions={{
           className: "my-toast",
-          style: { fontFamily: "Atkinson Hyperlegible" },
+          style: {
+            fontFamily: "Atkinson Hyperlegible",
+            backgroundColor: "var(--c-darkgray-800)",
+          },
         }}
         theme="dark"
       />

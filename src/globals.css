@@ -20,11 +20,14 @@
 
     --c-gray-500: #828282;
     --c-gray-300: #BDBDBD;
+
+    --c-darkgray-500: #333333;
+    --c-darkgray-800: #121212;
 }
 
 body {
-    background-color: #121212;
-    color: #F7F7F7;
+    background-color: var(--c-darkgray-800);
+    color: var(--c-whywhite-300);
     font-family: 'Atkinson Hyperlegible', sans-serif;
     max-width: 1080px;
     padding: 0 8px;
