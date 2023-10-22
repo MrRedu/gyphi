@@ -5,7 +5,7 @@ import { TrendingCarousel } from "@/components/organisms/trending-carousel/Trend
 import { Category } from "@/components/molecules/category/Category";
 
 const App = () => {
-  const [gifsCategory, setGifsCategory] = useState([]);
+  const [gifsCategory, setGifsCategory] = useState(["One Piece"]);
 
   const addCategory = (newGifsCategory) => {
     if (gifsCategory.includes(newGifsCategory)) return;
