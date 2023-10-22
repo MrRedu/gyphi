@@ -18,7 +18,7 @@
 
 .list {
     display: flex;
-    gap: 16px;
+    gap: 8px;
 }
 
 .list-item {
