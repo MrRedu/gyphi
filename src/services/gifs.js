@@ -38,3 +38,20 @@ export const getTrendingGifs = async () => {
     url: gif.url,
   }));
 };
+
+export const getGifById = async ({ id }) => {
+  const URL = `https://api.giphy.com/v1/gifs/${id}?api_key=${API_KEY}`;
+
+  const response = await fetch(URL);
+  const { data } = await response.json();
+
+  const { id: _id, title, images, url } = data;
+  const gif = {
+    id: _id,
+    title,
+    image: images.original.url,
+    url,
+  };
+
+  return gif;
+};
