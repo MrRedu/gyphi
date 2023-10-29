@@ -4,7 +4,7 @@ import { Toaster } from "sonner";
 
 import { Header } from "./components/organisms/ui/header/Header";
 import { Footer } from "./components/organisms/ui/footer/Footer";
-import { SearchBar } from "./components/molecules/SearchBar/SearchBar";
+import { SearchBar } from "./components/molecules/search-bar/SearchBar";
 
 export const Layout = ({ addCategory, children }) => {
   return (
