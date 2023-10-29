@@ -1,8 +1,11 @@
 import { useState } from "react";
 
+import { Route, Routes } from "react-router-dom";
+
 import { Layout } from "./layout";
-import { TrendingCarousel } from "@/components/organisms/trending-carousel/TrendingCarousel";
-import { Category } from "@/components/molecules/category/Category";
+
+import { DetailsGif } from "@/components/organisms/details-gif/DetailsGif";
+import { HomePage } from "@/components/pages/HomePage";
 
 const App = () => {
   const [gifsCategory, setGifsCategory] = useState(["One Piece"]);
@@ -15,8 +18,10 @@ const App = () => {
   return (
     <>
       <Layout addCategory={addCategory}>
-        <TrendingCarousel />
-        <Category gifsCategory={gifsCategory} />
+        <Routes>
+          <Route path="/" element={<HomePage gifs={gifsCategory} />} />
+          <Route path="/gif/:id" element={<DetailsGif />} />
+        </Routes>
       </Layout>
     </>
   );
