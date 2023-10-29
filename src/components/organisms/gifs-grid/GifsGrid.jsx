@@ -8,7 +8,8 @@ import styles from "./GifsGrid.module.css";
 import { CategoryTitle } from "@/components/molecules/category-title/CategoryTitle";
 import { Loader } from "@/components/atoms/loader/Loader";
 import { copyToClipboard } from "@/libs/utils";
-import { Link } from "lucide-react";
+import { Link as LinkIcon } from "lucide-react";
+import { Link } from "react-router-dom";
 
 export const GifsGrid = ({ category }) => {
   const { gifs, error, loading, getGifs } = useGifs();
@@ -33,13 +34,19 @@ export const GifsGrid = ({ category }) => {
             // gifs.slice(0, 12).map(({ url, title, id }) => {
             gifs.map(({ url, title, id, image }) => {
               return (
-                <div className={styles["gif-container"]} key={id}>
-                  <img className={styles["gif-img"]} src={image} alt={title} />
+                <div key={id} className={styles["gif-container"]}>
+                  <Link to={`/gif/${id}`}>
+                    <img
+                      className={styles["gif-img"]}
+                      src={image}
+                      alt={title}
+                    />
+                  </Link>
                   <button
                     className={styles["copy-btn"]}
                     onClick={() => handleCopy(url)}
                   >
-                    <Link size={20} />
+                    <LinkIcon size={20} />
                   </button>
                 </div>
               );
