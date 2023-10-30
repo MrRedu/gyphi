@@ -35,7 +35,7 @@ export const GifsGrid = ({ category }) => {
             gifs.map(({ url, title, id, image }) => {
               return (
                 <div key={id} className={styles["gif-container"]}>
-                  <Link to={`/gif/${id}`}>
+                  <Link to={`/gifs/${id}`}>
                     <img
                       className={styles["gif-img"]}
                       src={image}

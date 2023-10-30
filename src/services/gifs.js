@@ -45,12 +45,18 @@ export const getGifById = async ({ id }) => {
   const response = await fetch(URL);
   const { data } = await response.json();
 
-  const { id: _id, title, images, url } = data;
+  const { id: _id, title, images, url, user = {} } = data;
   const gif = {
     id: _id,
+    url,
     title,
     image: images.original.url,
-    url,
+    user: {
+      name: user.username,
+      avatar: user.avatar_url,
+      description: user.description,
+      is_verified: user.is_verified,
+    },
   };
 
   return gif;

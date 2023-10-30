@@ -12,7 +12,7 @@ export const Layout = ({ addCategory, children }) => {
       <Header>
         <SearchBar addCategory={addCategory} />
       </Header>
-      {children}
+      <main>{children}</main>
       <Toaster
         toastOptions={{
           className: "my-toast",

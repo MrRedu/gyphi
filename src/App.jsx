@@ -20,7 +20,7 @@ const App = () => {
       <Layout addCategory={addCategory}>
         <Routes>
           <Route path="/" element={<HomePage gifs={gifsCategory} />} />
-          <Route path="/gif/:id" element={<DetailsGif />} />
+          <Route path="/gifs/:id" element={<DetailsGif />} />
         </Routes>
       </Layout>
     </>
