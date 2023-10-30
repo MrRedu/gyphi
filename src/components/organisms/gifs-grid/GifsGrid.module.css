@@ -24,7 +24,9 @@
 }
 
 .gif-container:hover .copy-btn {
-    display: block;
+    display: grid;
+    place-content: center;
+    background-color: #00000085;
 }
 
 .gif-img {
@@ -37,11 +39,14 @@
     position: absolute;
     top: 8px;
     right: 8px;
-    background-color: transparent;
+    padding: 4px;
 
+    background-color: transparent;
     color: var(--c-whywhite-300);
     border: none;
     cursor: pointer;
+
+    border-radius: 2px;
 
     display: none;
 }

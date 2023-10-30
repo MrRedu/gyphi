@@ -3,6 +3,11 @@
     padding: 8px 0;
 }
 
+.link {
+    color: var(--c-whywhite-500);
+    text-decoration: none;
+}
+
 .title {
     font-size: var(--f-s-lg);
     font-weight: var(--f-bold);

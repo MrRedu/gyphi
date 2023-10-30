@@ -38,3 +38,26 @@ export const getTrendingGifs = async () => {
     url: gif.url,
   }));
 };
+
+export const getGifById = async ({ id }) => {
+  const URL = `https://api.giphy.com/v1/gifs/${id}?api_key=${API_KEY}`;
+
+  const response = await fetch(URL);
+  const { data } = await response.json();
+
+  const { id: _id, title, images, url, user = {} } = data;
+  const gif = {
+    id: _id,
+    url,
+    title,
+    image: images.original.url,
+    user: {
+      name: user.username,
+      avatar: user.avatar_url,
+      description: user.description,
+      is_verified: user.is_verified,
+    },
+  };
+
+  return gif;
+};

@@ -27,7 +27,9 @@ export const SearchBar = ({ addCategory }) => {
           type="text"
           placeholder="Search all the GIFs"
           value={query}
+          name="query"
           onChange={handleChange}
+          autoComplete="off" /* ?? */
         />
         <button
           className={styles["button"]}
