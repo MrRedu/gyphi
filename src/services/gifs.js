@@ -1,6 +1,5 @@
 const API_KEY = `Zddo3H95jRw92tGnUjbAQb1QN6VEk6gN`;
 
-
 export const getGifsByQuery = async ({ query }, { signal }) => {
   if (!query) return;
   if (query.length < 3) return;
@@ -47,12 +46,27 @@ export const getGifById = async ({ id }, { signal }) => {
     const response = await fetch(URL, { signal });
     const { data } = await response.json();
 
-    const { id: _id, title, images, url, user = {} } = data;
+    const {
+      id: _id,
+      title,
+      images,
+      rating,
+      import_datetime,
+      url,
+      user = {},
+    } = data;
     return {
       id: _id,
       url,
       title,
       image: images.original.url,
+      details: {
+        frames: images.original.frames,
+        width: images.original.width,
+        height: images.original.height,
+        rating,
+        uploaded: import_datetime,
+      },
       user: {
         name: user.username,
         avatar: user.avatar_url,
