@@ -10,10 +10,15 @@ import { Link } from "lucide-react";
 import { copyToClipboard } from "@/libs/utils";
 
 export const TrendingCarousel = () => {
-  const { trending, loading, error, getTrending } = useTrending();
+  const { trending, loading, getTrending } = useTrending();
 
   useEffect(() => {
-    getTrending();
+    const abortController = new AbortController();
+    getTrending({ signal: abortController.signal });
+
+    return () => {
+      abortController.abort();
+    };
   }, []);
 
   const containerRef = useRef(null);
@@ -52,8 +57,6 @@ export const TrendingCarousel = () => {
 
           <div className={styles["gifs-container"]} ref={containerRef}>
             {loading && <Loader />}
-            {error && <h2>Error: {error}</h2>}
-
             {trending &&
               trending.map(({ id, image, title, url }) => (
                 <div key={id} className={styles["trending-gif"]}>
