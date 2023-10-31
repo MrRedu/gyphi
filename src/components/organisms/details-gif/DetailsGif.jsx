@@ -11,7 +11,12 @@ export const DetailsGif = () => {
   const [gif, setGif] = useState(null);
 
   useEffect(() => {
-    getGifById({ id }).then(setGif);
+    const abortController = new AbortController();
+    getGifById({ id }, { signal: abortController.signal }).then(setGif);
+
+    return () => {
+      abortController.abort();
+    };
   }, []);
 
   return (

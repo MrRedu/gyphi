@@ -12,10 +12,15 @@ import { Link as LinkIcon } from "lucide-react";
 import { Link } from "react-router-dom";
 
 export const GifsGrid = ({ category }) => {
-  const { gifs, error, loading, getGifs } = useGifs();
+  const { gifs, loading, getGifs } = useGifs();
 
   useEffect(() => {
-    getGifs({ query: category });
+    const abortController = new AbortController();
+    getGifs({ query: category }, { signal: abortController.signal });
+
+    return () => {
+      abortController.abort();
+    };
   }, []);
 
   const handleCopy = (text) => {
@@ -29,7 +34,6 @@ export const GifsGrid = ({ category }) => {
 
         <div className={styles["gifs-container"]}>
           {loading && <Loader />}
-          {error && <p>{error}</p>}
           {gifs &&
             // gifs.slice(0, 12).map(({ url, title, id }) => {
             gifs.map(({ url, title, id, image }) => {
