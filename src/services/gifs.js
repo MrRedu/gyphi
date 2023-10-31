@@ -1,17 +1,14 @@
 const API_KEY = `Zddo3H95jRw92tGnUjbAQb1QN6VEk6gN`;
 
-// TODO: add Controller/Abort/Signal
-// TODO: add Controller/Abort/Signal
-// TODO: add Controller/Abort/Signal
 
-export const getGifsByQuery = async ({ query }) => {
+export const getGifsByQuery = async ({ query }, { signal }) => {
   if (!query) return;
   if (query.length < 3) return;
 
   try {
     const URL = `https://api.giphy.com/v1/gifs/search?api_key=${API_KEY}&q=${query}&limit=12`;
 
-    const response = await fetch(URL);
+    const response = await fetch(URL, { signal });
     const { data } = await response.json();
 
     return await data.map((gif) => ({
@@ -25,11 +22,11 @@ export const getGifsByQuery = async ({ query }) => {
   }
 };
 
-export const getTrendingGifs = async () => {
+export const getTrendingGifs = async ({ signal }) => {
   try {
     const URL = `https://api.giphy.com/v1/gifs/trending?api_key=${API_KEY}&limit=25&rating=g`;
 
-    const response = await fetch(URL);
+    const response = await fetch(URL, { signal });
     const { data } = await response.json();
 
     return data.map((gif) => ({
@@ -43,11 +40,11 @@ export const getTrendingGifs = async () => {
   }
 };
 
-export const getGifById = async ({ id }) => {
+export const getGifById = async ({ id }, { signal }) => {
   try {
     const URL = `https://api.giphy.com/v1/gifs/${id}?api_key=${API_KEY}`;
 
-    const response = await fetch(URL);
+    const response = await fetch(URL, { signal });
     const { data } = await response.json();
 
     const { id: _id, title, images, url, user = {} } = data;
