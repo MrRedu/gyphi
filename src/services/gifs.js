@@ -1,4 +1,4 @@
-const API_KEY = `Zddo3H95jRw92tGnUjbAQb1QN6VEk6gN`;
+const API_KEY = import.meta.env.VITE_API_KEY;
 
 export const getGifsByQuery = async ({ query }, { signal }) => {
   if (!query) return;
