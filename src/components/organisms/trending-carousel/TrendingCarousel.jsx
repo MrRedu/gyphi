@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+import { useRef } from "react";
 import { useTrending } from "@/hooks/useTrending";
 
 import styles from "./TrendingCarousel.module.css";
@@ -10,16 +10,7 @@ import { Link } from "lucide-react";
 import { copyToClipboard } from "@/libs/utils";
 
 export const TrendingCarousel = () => {
-  const { trending, loading, getTrending } = useTrending();
-
-  useEffect(() => {
-    const abortController = new AbortController();
-    getTrending({ signal: abortController.signal });
-
-    return () => {
-      abortController.abort();
-    };
-  }, []);
+  const { trending, loading } = useTrending();
 
   const containerRef = useRef(null);
 
