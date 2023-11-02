@@ -1,18 +1,18 @@
 import { useState, useEffect } from "react";
-import { getTrendingGifs } from "@/services/gifs";
+import { getGifById } from "@/services/gifs";
 
-export function useTrending() {
-  const [trending, setTrending] = useState([]);
+export function useDetailsGifs({ id }) {
+  const [gif, setGif] = useState(null);
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(false);
 
-  const getTrending = async ({ signal }) => {
+  const getDetailtsGif = async ({ id }, { signal }) => {
     try {
       setLoading(true);
-      const trendingGifs = await getTrendingGifs({ signal });
-      setTrending(trendingGifs);
+      const gifById = await getGifById({ id }, { signal });
+      setGif(gifById);
     } catch (error) {
-      setError("No se pudieron conseguir los gifs");
+      setError("No se pudo conseguir los detalles del gif");
     } finally {
       setLoading(false);
     }
@@ -20,7 +20,7 @@ export function useTrending() {
 
   useEffect(() => {
     const abortController = new AbortController();
-    getTrending({ signal: abortController.signal });
+    getDetailtsGif({ id }, { signal: abortController.signal });
 
     return () => {
       abortController.abort();
@@ -28,7 +28,7 @@ export function useTrending() {
   }, []);
 
   return {
-    trending,
+    gif,
     error,
     loading,
   };

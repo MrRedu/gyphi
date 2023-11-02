@@ -1,6 +1,5 @@
 import ProTypes from "prop-types";
 
-import { useEffect } from "react";
 import { useGifs } from "@/hooks/useGifs";
 
 import styles from "./GifsGrid.module.css";
@@ -12,16 +11,7 @@ import { Link as LinkIcon } from "lucide-react";
 import { Link } from "react-router-dom";
 
 export const GifsGrid = ({ category }) => {
-  const { gifs, loading, getGifs } = useGifs();
-
-  useEffect(() => {
-    const abortController = new AbortController();
-    getGifs({ query: category }, { signal: abortController.signal });
-
-    return () => {
-      abortController.abort();
-    };
-  }, []);
+  const { gifs, loading } = useGifs({ category });
 
   const handleCopy = (text) => {
     copyToClipboard(text);

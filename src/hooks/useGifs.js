@@ -1,7 +1,7 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { getGifsByQuery } from "@/services/gifs";
 
-export function useGifs() {
+export function useGifs({ category }) {
   const [gifs, setGifs] = useState([]);
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(false);
@@ -21,10 +21,18 @@ export function useGifs() {
     }
   };
 
+  useEffect(() => {
+    const abortController = new AbortController();
+    getGifs({ query: category }, { signal: abortController.signal });
+
+    return () => {
+      abortController.abort();
+    };
+  }, []);
+
   return {
     gifs,
     error,
     loading,
-    getGifs,
   };
 }
