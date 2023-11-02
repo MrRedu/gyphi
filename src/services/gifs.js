@@ -1,11 +1,14 @@
 const API_KEY = import.meta.env.VITE_API_KEY;
 
-export const getGifsByQuery = async ({ query }, { signal }) => {
+export const getGifsByQuery = async (
+  { query, numberGifsToRender },
+  { signal }
+) => {
   if (!query) return;
   if (query.length < 3) return;
 
   try {
-    const URL = `https://api.giphy.com/v1/gifs/search?api_key=${API_KEY}&q=${query}&limit=12`;
+    const URL = `https://api.giphy.com/v1/gifs/search?api_key=${API_KEY}&q=${query}&limit=${numberGifsToRender}`;
 
     const response = await fetch(URL, { signal });
     const { data } = await response.json();
