@@ -5,7 +5,7 @@ import { Route, Routes } from "react-router-dom";
 import { Layout } from "./layout";
 
 import { DetailsGif } from "@/components/organisms/details-gif/DetailsGif";
-import { HomePage } from "@/components/pages/HomePage";
+import { CategoryPage, HomePage, NotFoundPage } from "@/components/pages";
 
 const App = () => {
   const [gifsCategory, setGifsCategory] = useState(["One Piece"]);
@@ -21,6 +21,8 @@ const App = () => {
         <Routes>
           <Route path="/" element={<HomePage gifs={gifsCategory} />} />
           <Route path="/gifs/:id" element={<DetailsGif />} />
+          <Route path="/category/:category" element={<CategoryPage />} />
+          <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </Layout>
     </>
