@@ -10,8 +10,8 @@ import { copyToClipboard } from "@/libs/utils";
 import { Link as LinkIcon } from "lucide-react";
 import { Link } from "react-router-dom";
 
-export const GifsGrid = ({ category }) => {
-  const { gifs, loading } = useGifs({ category });
+export const GifsGrid = ({ category, numberGifsToRender }) => {
+  const { gifs, loading } = useGifs({ category, numberGifsToRender });
 
   const handleCopy = (text) => {
     copyToClipboard(text);
@@ -53,4 +53,5 @@ export const GifsGrid = ({ category }) => {
 
 GifsGrid.propTypes = {
   category: ProTypes.string.isRequired,
+  numberGifsToRender: ProTypes.number.isRequired,
 };

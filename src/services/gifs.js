@@ -1,12 +1,17 @@
 // const API_KEY = import.meta.env.VITE_API_KEY;
 const API_KEY = `Zddo3H95jRw92tGnUjbAQb1QN6VEk6gN`;
 
-export const getGifsByQuery = async ({ query }, { signal }) => {
+export const getGifsByQuery = async (
+  { query, numberGifsToRender },
+  { signal }
+) => {
   if (!query) return;
   if (query.length < 3) return;
 
   try {
-    const URL = `https://api.giphy.com/v1/gifs/search?api_key=${API_KEY}&q=${query}&limit=12`;
+    const URL = `https://api.giphy.com/v1/gifs/search?api_key=${API_KEY}&q=${query}&limit=${
+      numberGifsToRender || 12
+    }`;
 
     const response = await fetch(URL, { signal });
     const { data } = await response.json();

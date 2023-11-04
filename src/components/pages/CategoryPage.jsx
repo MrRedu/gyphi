@@ -6,7 +6,7 @@ export const CategoryPage = () => {
 
   return (
     <>
-      <GifsGrid category={category} />
+      <GifsGrid category={category} numberGifsToRender={24} />
     </>
   );
 };
