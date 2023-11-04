@@ -9,7 +9,9 @@ export const getGifsByQuery = async (
   if (query.length < 3) return;
 
   try {
-    const URL = `https://api.giphy.com/v1/gifs/search?api_key=${API_KEY}&q=${query}&limit=${numberGifsToRender}`;
+    const URL = `https://api.giphy.com/v1/gifs/search?api_key=${API_KEY}&q=${query}&limit=${
+      numberGifsToRender || 12
+    }`;
 
     const response = await fetch(URL, { signal });
     const { data } = await response.json();
