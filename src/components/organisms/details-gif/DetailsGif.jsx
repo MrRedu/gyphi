@@ -7,6 +7,7 @@ import styles from "./DetailsGif.module.css";
 import { DetailsUser } from "@/components/molecules/details-user/DetailsUser";
 import { Info, XCircle } from "lucide-react";
 import { useDetailsGifs } from "@/hooks/useDetailsGifs";
+import { StatsGif } from "@/components/molecules/stats-gif/StatsGif";
 
 export const DetailsGif = () => {
   let { id } = useParams();
@@ -42,21 +43,7 @@ export const DetailsGif = () => {
             </header>
             <div className={styles["gif-container"]}>
               {isOpenDetails && (
-                <div className={styles["gif-details"]}>
-                  <span className={styles["gif-details-stat"]}>
-                    Source: {gif.details.width}x{gif.details.height}px
-                  </span>
-                  <span className={styles["gif-details-stat"]}>Size: {}</span>
-                  <span className={styles["gif-details-stat"]}>
-                    Frames: {gif.details.frames}
-                  </span>
-                  <span className={styles["gif-details-stat"]}>
-                    Uploaded: {gif.details.uploaded}
-                  </span>
-                  <span className={styles["gif-details-stat"]}>
-                    Rating: {gif.details.rating}
-                  </span>
-                </div>
+                <StatsGif details={gif.details} />
               )}
               <img
                 className={styles["gif-image"]}
