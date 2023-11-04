@@ -4,7 +4,7 @@ import { useState } from "react";
 import styles from "./SearchBar.module.css";
 import { Search } from "lucide-react";
 
-export const SearchBar = ({ addCategory }) => {
+export const SearchBar = ({ addCategory, pathname }) => {
   const [query, setQuery] = useState("");
 
   const handleChange = (e) => {
@@ -15,7 +15,14 @@ export const SearchBar = ({ addCategory }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (query.trim().length < 2) return;
-    addCategory(query.trim());
+
+    if (pathname === "/") {
+      console.log("added new category");
+      addCategory(query.trim());
+    } else {
+      // TODO: open new category page
+      console.log("open new category page");
+    }
     setQuery("");
   };
 
@@ -45,4 +52,5 @@ export const SearchBar = ({ addCategory }) => {
 
 SearchBar.propTypes = {
   addCategory: ProTypes.func,
+  pathname: ProTypes.string,
 };

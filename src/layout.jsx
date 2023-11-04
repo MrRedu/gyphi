@@ -6,11 +6,11 @@ import { Header } from "./components/organisms/ui/header/Header";
 import { Footer } from "./components/organisms/ui/footer/Footer";
 import { SearchBar } from "./components/molecules/search-bar/SearchBar";
 
-export const Layout = ({ addCategory, children }) => {
+export const Layout = ({ addCategory, pathname, children }) => {
   return (
     <>
       <Header>
-        <SearchBar addCategory={addCategory} />
+        <SearchBar addCategory={addCategory} pathname={pathname} />
       </Header>
       <main>{children}</main>
       <Toaster
@@ -30,5 +30,6 @@ export const Layout = ({ addCategory, children }) => {
 
 Layout.propTypes = {
   addCategory: ProTypes.func,
+  pathname: ProTypes.string,
   children: ProTypes.node.isRequired,
 };
