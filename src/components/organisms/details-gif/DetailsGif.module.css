@@ -43,26 +43,6 @@
     position: relative;
 }
 
-.gif-details {
-    position: absolute;
-    top: 8px;
-    left: 8px;
-    right: 8px;
-    background-color: rgba(0, 0, 0, 0.9);
-
-    display: grid;
-    padding: 1rem;
-}
-
-.gif-details-stat {
-    font-size: var(--f-s-sm);
-}
-
-.gif-image {
-    width: 100%;
-    height: auto;
-}
-
 
 @media screen and (min-width: 736px) {
     .container {
@@ -71,10 +51,5 @@
 
     .gif-container {
         width: 500px;
-    }
-
-    .gif-details {
-        grid-template-columns: 1fr 1fr;
-
     }
 }

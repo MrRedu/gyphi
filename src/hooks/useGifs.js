@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { getGifsByQuery } from "@/services/gifs";
 
-export function useGifs({ category }) {
+export function useGifs({ category, numberGifsToRender }) {
   const [gifs, setGifs] = useState([]);
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(false);
@@ -12,7 +12,10 @@ export function useGifs({ category }) {
 
     try {
       setLoading(true);
-      const gifsByQuery = await getGifsByQuery({ query }, { signal });
+      const gifsByQuery = await getGifsByQuery(
+        { query, numberGifsToRender },
+        { signal }
+      );
       setGifs(gifsByQuery);
     } catch (error) {
       setError("No se pudieron conseguir los gifs");

@@ -7,7 +7,7 @@ export const HomePage = ({ gifs }) => {
   return (
     <>
       <TrendingCarousel />
-      <Category gifsCategory={gifs} />
+      <Category gifsCategory={gifs} numberGifsToRender={12} />
     </>
   );
 };
