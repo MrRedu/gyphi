@@ -1,0 +1,42 @@
+.container {
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    gap: 32px;
+
+    margin: 32px 0;
+}
+
+.container-text {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.title {
+    font-size: var(--f-s-lg);
+}
+
+.status-code {
+    font-size: var(--f-s-xxxl);
+    font-weight: var(--f-bold);
+}
+
+.text {
+    font-size: var(--f-s-base);
+}
+
+.actions {
+    display: flex;
+    gap: 8px;
+}
+
+@media screen and (max-width: 376px) {
+    .actions {
+        flex-direction: column;
+        width: 100%;
+    }
+}
