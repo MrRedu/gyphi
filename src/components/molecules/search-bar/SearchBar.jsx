@@ -3,36 +3,23 @@ import ProTypes from 'prop-types'
 import { useState } from 'react'
 import styles from './SearchBar.module.css'
 import { Search } from 'lucide-react'
-import { useNavigate } from 'react-router-dom'
 
-export const SearchBar = ({ addCategory, pathname }) => {
+export const SearchBar = ({ onSubmit }) => {
   const [query, setQuery] = useState('')
-
-  const navigate = useNavigate()
 
   const handleChange = e => {
     const strg = e.target.value
     setQuery(strg)
   }
 
-  // Cambiar esto a App.jsx (?)
-  // Pedir ayuda y preguntar si es correcto
-  // Ya que técnicamente, la función de abajo no tiene
-  // que ver directamente con el componente
-  const handleSubmit = e => {
+  const handleFormSubmit = e => {
     e.preventDefault()
-    let strg = query.trim()
-    if (strg.length < 2) return
-    if (pathname === '/') {
-      addCategory(strg)
-    } else {
-      navigate(`/category/${strg}`)
-    }
+    onSubmit(e, query)
     setQuery('')
   }
 
   return (
-    <form action="" onSubmit={handleSubmit} className={styles['form']}>
+    <form action="" onSubmit={handleFormSubmit} className={styles['form']}>
       <div className={styles['container']}>
         <input
           className={styles['input']}
@@ -46,7 +33,7 @@ export const SearchBar = ({ addCategory, pathname }) => {
         <button
           className={styles['button']}
           type="button"
-          onClick={handleSubmit}
+          onClick={handleFormSubmit}
         >
           <Search icon="search" />
         </button>
@@ -56,6 +43,5 @@ export const SearchBar = ({ addCategory, pathname }) => {
 }
 
 SearchBar.propTypes = {
-  addCategory: ProTypes.func,
-  pathname: ProTypes.string,
+  onSubmit: ProTypes.func,
 }
