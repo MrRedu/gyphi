@@ -2,22 +2,22 @@ import ProTypes from 'prop-types'
 
 import { Toaster } from 'sonner'
 
-import { Header } from './components/organisms/ui/header/Header'
-import { Footer } from './components/organisms/ui/footer/Footer'
-import { SearchBar } from './components/molecules/search-bar/SearchBar'
+import { Header } from '@/components/organisms/ui/header/Header'
+import { Footer } from '@/components/organisms/ui/footer/Footer'
+import { SearchBar } from '@/components/molecules/search-bar/SearchBar'
 
-export const Layout = ({ addCategory, pathname, children }) => {
+export const Layout = ({ handleSubmit, children }) => {
   return (
     <>
       <Header>
-        <SearchBar addCategory={addCategory} pathname={pathname} />
+        <SearchBar onSubmit={handleSubmit} />
       </Header>
       <main>{children}</main>
       <Toaster
         toastOptions={{
           className: 'my-toast',
           style: {
-            fontFamily: 'Atkinson Hyperlegible',
+            fontFamily: 'var(--f-main)',
             backgroundColor: 'var(--c-darkgray-800)',
           },
         }}
@@ -29,7 +29,6 @@ export const Layout = ({ addCategory, pathname, children }) => {
 }
 
 Layout.propTypes = {
-  addCategory: ProTypes.func,
-  pathname: ProTypes.string,
+  handleSubmit: ProTypes.func,
   children: ProTypes.node.isRequired,
 }

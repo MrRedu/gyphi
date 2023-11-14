@@ -16,16 +16,16 @@ export const NotFoundPage = () => {
 
   return (
     <>
-      <section className={styles['container']}>
+      <section className={styles.container}>
         <div className={styles['container-text']}>
-          <span className={styles['title']}>Uh-oh!</span>
+          <span className={styles.title}>Uh-oh!</span>
           <span className={styles['status-code']}>404</span>
-          <span className={styles['text']}>{`Something's missing.`}</span>
-          <span className={styles['text']}>
+          <span className={styles.text}>{`Something's missing.`}</span>
+          <span className={styles.text}>
             The page you looking for is not found.
           </span>
         </div>
-        <div className={styles['actions']}>
+        <div className={styles.actions}>
           <Button
             handleClick={goBack}
             preIcon={<MoveLeft size={20} strokeWidth={2} color="white" />}

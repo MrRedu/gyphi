@@ -1,6 +1,6 @@
 import { useState } from 'react'
 
-import { Route, Routes, useLocation } from 'react-router-dom'
+import { Route, Routes, useLocation, useNavigate } from 'react-router-dom'
 
 import { Layout } from './layout'
 
@@ -9,6 +9,8 @@ import { CategoryPage, HomePage, NotFoundPage } from '@/components/pages'
 
 const App = () => {
   const { pathname } = useLocation()
+  const navigate = useNavigate()
+
   const [gifsCategory, setGifsCategory] = useState(['One Piece'])
 
   const addCategory = newGifsCategory => {
@@ -16,9 +18,22 @@ const App = () => {
     setGifsCategory([newGifsCategory, ...gifsCategory])
   }
 
+  const handleSubmit = (e, query) => {
+    e.preventDefault()
+
+    const strg = query.trim()
+    if (strg.length < 2) return
+
+    if (pathname === '/') {
+      addCategory(strg)
+    } else {
+      navigate(`/category/${strg}`)
+    }
+  }
+
   return (
     <>
-      <Layout addCategory={addCategory} pathname={pathname}>
+      <Layout handleSubmit={handleSubmit}>
         <Routes>
           <Route path="/" element={<HomePage gifs={gifsCategory} />} />
           <Route path="/gifs/:id" element={<DetailsGif />} />
