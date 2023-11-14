@@ -1,22 +1,22 @@
 .button {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 
-    cursor: pointer;
+  cursor: pointer;
 
-    min-width: 132px;
-    height: 42px;
+  min-width: 132px;
+  height: 42px;
 
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
 
-    padding: 0 16px;
-    border-radius: 4px;
-    border: none;
+  padding: 0 16px;
+  border-radius: 4px;
+  border: none;
 }
 
 .text {
-    font-size: var(--f-s-base);
-    font-weight: var(--f-bold);
+  font-size: var(--f-s-base);
+  font-weight: var(--f-bold);
 }

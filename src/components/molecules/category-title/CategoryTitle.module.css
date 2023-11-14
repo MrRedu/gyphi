@@ -1,30 +1,30 @@
 .category-title {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .title-link {
-    display: flex;
-    gap: 8px;
-    min-height: 24px;
-    text-decoration: none;
-    color: var(--c-whywhite-300)
+  display: flex;
+  gap: 8px;
+  min-height: 24px;
+  text-decoration: none;
+  color: var(--c-whywhite-300);
 }
 
 .title-link:hover {
-    text-decoration: underline;
+  text-decoration: underline;
 }
 
 .title {
-    font-size: var(--f-s-base);
-    font-weight: var(--f-bold);
+  font-size: var(--f-s-base);
+  font-weight: var(--f-bold);
 }
 
 .see-all-link {
-    display: flex;
-    align-items: center;
-    min-height: 24px;
-    text-decoration: none;
-    color: var(--c-gray-500)
+  display: flex;
+  align-items: center;
+  min-height: 24px;
+  text-decoration: none;
+  color: var(--c-gray-500);
 }

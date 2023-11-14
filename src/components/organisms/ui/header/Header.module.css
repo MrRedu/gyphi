@@ -1,14 +1,14 @@
 .header {
-    display: flex;
-    padding: 8px 0;
+  display: flex;
+  padding: 8px 0;
 }
 
 .link {
-    color: var(--c-whywhite-500);
-    text-decoration: none;
+  color: var(--c-whywhite-500);
+  text-decoration: none;
 }
 
 .title {
-    font-size: var(--f-s-lg);
-    font-weight: var(--f-bold);
+  font-size: var(--f-s-lg);
+  font-weight: var(--f-bold);
 }

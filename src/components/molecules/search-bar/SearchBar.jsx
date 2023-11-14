@@ -1,29 +1,41 @@
-import ProTypes from "prop-types";
+import ProTypes from 'prop-types'
 
-import { useState } from "react";
-import styles from "./SearchBar.module.css";
-import { Search } from "lucide-react";
+import { useState } from 'react'
+import styles from './SearchBar.module.css'
+import { Search } from 'lucide-react'
+import { useNavigate } from 'react-router-dom'
 
-export const SearchBar = ({ addCategory }) => {
-  const [query, setQuery] = useState("");
+export const SearchBar = ({ addCategory, pathname }) => {
+  const [query, setQuery] = useState('')
 
-  const handleChange = (e) => {
-    const strg = e.target.value;
-    setQuery(strg);
-  };
+  const navigate = useNavigate()
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    if (query.trim().length < 2) return;
-    addCategory(query.trim());
-    setQuery("");
-  };
+  const handleChange = e => {
+    const strg = e.target.value
+    setQuery(strg)
+  }
+
+  // Cambiar esto a App.jsx (?)
+  // Pedir ayuda y preguntar si es correcto
+  // Ya que técnicamente, la función de abajo no tiene
+  // que ver directamente con el componente
+  const handleSubmit = e => {
+    e.preventDefault()
+    let strg = query.trim()
+    if (strg.length < 2) return
+    if (pathname === '/') {
+      addCategory(strg)
+    } else {
+      navigate(`/category/${strg}`)
+    }
+    setQuery('')
+  }
 
   return (
-    <form action="" onSubmit={handleSubmit} className={styles["form"]}>
-      <div className={styles["container"]}>
+    <form action="" onSubmit={handleSubmit} className={styles['form']}>
+      <div className={styles['container']}>
         <input
-          className={styles["input"]}
+          className={styles['input']}
           type="text"
           placeholder="Search all the GIFs"
           value={query}
@@ -32,7 +44,7 @@ export const SearchBar = ({ addCategory }) => {
           autoComplete="off" /* ?? */
         />
         <button
-          className={styles["button"]}
+          className={styles['button']}
           type="button"
           onClick={handleSubmit}
         >
@@ -40,9 +52,10 @@ export const SearchBar = ({ addCategory }) => {
         </button>
       </div>
     </form>
-  );
-};
+  )
+}
 
 SearchBar.propTypes = {
   addCategory: ProTypes.func,
-};
+  pathname: ProTypes.string,
+}
