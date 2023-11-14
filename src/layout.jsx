@@ -2,9 +2,9 @@ import ProTypes from 'prop-types'
 
 import { Toaster } from 'sonner'
 
-import { Header } from './components/organisms/ui/header/Header'
-import { Footer } from './components/organisms/ui/footer/Footer'
-import { SearchBar } from './components/molecules/search-bar/SearchBar'
+import { Header } from '@/components/organisms/ui/header/Header'
+import { Footer } from '@/components/organisms/ui/footer/Footer'
+import { SearchBar } from '@/components/molecules/search-bar/SearchBar'
 
 export const Layout = ({ handleSubmit, children }) => {
   return (
@@ -17,7 +17,7 @@ export const Layout = ({ handleSubmit, children }) => {
         toastOptions={{
           className: 'my-toast',
           style: {
-            fontFamily: 'Atkinson Hyperlegible',
+            fontFamily: 'var(--f-main)',
             backgroundColor: 'var(--c-darkgray-800)',
           },
         }}

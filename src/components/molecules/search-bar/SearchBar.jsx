@@ -19,19 +19,19 @@ export const SearchBar = ({ onSubmit }) => {
   }
 
   return (
-    <form action="" onSubmit={handleFormSubmit} className={styles['form']}>
-      <div className={styles['container']}>
+    <form action="" onSubmit={handleFormSubmit} className={styles.form}>
+      <div className={styles.container}>
         <input
-          className={styles['input']}
+          className={styles.input}
           type="text"
           placeholder="Search all the GIFs"
           value={query}
           name="query"
           onChange={handleChange}
-          autoComplete="off" /* ?? */
+          autoComplete="off"
         />
         <button
-          className={styles['button']}
+          className={styles.button}
           type="button"
           onClick={handleFormSubmit}
         >
