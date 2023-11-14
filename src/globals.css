@@ -1,35 +1,35 @@
 @import url('https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&display=swap');
 
 :root {
-    /* Font-size */
-    --f-s-micro: clamp(0.64rem, 0.05vw + 0.63rem, 0.67rem);
-    --f-s-sm: clamp(0.8rem, 0.17vw + 0.76rem, 0.89rem);
-    --f-s-base: clamp(1rem, 0.34vw + 0.91rem, 1.19rem);
-    --f-s-md: clamp(1.25rem, 0.61vw + 1.1rem, 1.58rem);
-    --f-s-lg: clamp(1.56rem, 1vw + 1.31rem, 2.11rem);
-    --f-s-xl: clamp(1.95rem, 1.57vw + 1.56rem, 2.81rem);
-    --f-s-xxl: clamp(2.44rem, 2.38vw + 1.85rem, 3.75rem);
-    --f-s-xxxl: clamp(3.05rem, 3.55vw + 2.17rem, 5rem);
+  /* Font-size */
+  --f-s-micro: clamp(0.64rem, 0.05vw + 0.63rem, 0.67rem);
+  --f-s-sm: clamp(0.8rem, 0.17vw + 0.76rem, 0.89rem);
+  --f-s-base: clamp(1rem, 0.34vw + 0.91rem, 1.19rem);
+  --f-s-md: clamp(1.25rem, 0.61vw + 1.1rem, 1.58rem);
+  --f-s-lg: clamp(1.56rem, 1vw + 1.31rem, 2.11rem);
+  --f-s-xl: clamp(1.95rem, 1.57vw + 1.56rem, 2.81rem);
+  --f-s-xxl: clamp(2.44rem, 2.38vw + 1.85rem, 3.75rem);
+  --f-s-xxxl: clamp(3.05rem, 3.55vw + 2.17rem, 5rem);
 
-    /* Font-weight */
-    --f-regular: 400;
-    --f-bold: 700;
+  /* Font-weight */
+  --f-regular: 400;
+  --f-bold: 700;
 
-    /* Colors */
-    --c-whywhite-300: #F7F7F7;
+  /* Colors */
+  --c-whywhite-300: #f7f7f7;
 
-    --c-gray-500: #828282;
-    --c-gray-300: #BDBDBD;
+  --c-gray-500: #828282;
+  --c-gray-300: #bdbdbd;
 
-    --c-darkgray-500: #333333;
-    --c-darkgray-800: #121212;
+  --c-darkgray-500: #333333;
+  --c-darkgray-800: #121212;
 }
 
 body {
-    background-color: var(--c-darkgray-800);
-    color: var(--c-whywhite-300);
-    font-family: 'Atkinson Hyperlegible', sans-serif;
-    max-width: 1080px;
-    padding: 0 8px;
-    margin: 0 auto;
+  background-color: var(--c-darkgray-800);
+  color: var(--c-whywhite-300);
+  font-family: 'Atkinson Hyperlegible', sans-serif;
+  max-width: 1080px;
+  padding: 0 8px;
+  margin: 0 auto;
 }

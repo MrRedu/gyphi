@@ -1,7 +1,7 @@
-import ProTypes from "prop-types";
+import ProTypes from 'prop-types'
 
-import { TrendingCarousel } from "@/components/organisms/trending-carousel/TrendingCarousel";
-import { Category } from "@/components/molecules/category/Category";
+import { TrendingCarousel } from '@/components/organisms/trending-carousel/TrendingCarousel'
+import { Category } from '@/components/molecules/category/Category'
 
 export const HomePage = ({ gifs }) => {
   return (
@@ -9,9 +9,9 @@ export const HomePage = ({ gifs }) => {
       <TrendingCarousel />
       <Category gifsCategory={gifs} numberGifsToRender={12} />
     </>
-  );
-};
+  )
+}
 
 HomePage.propTypes = {
   gifs: ProTypes.array,
-};
+}

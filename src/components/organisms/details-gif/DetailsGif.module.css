@@ -1,55 +1,54 @@
 .container {
-    display: flex;
-    flex-direction: column-reverse;
-    gap: 16px;
+  display: flex;
+  flex-direction: column-reverse;
+  gap: 16px;
 
-    margin: 12px 0;
+  margin: 12px 0;
 }
 
 .aside {
-    display: flex;
+  display: flex;
 
-    border-left: 2px solid var(--c-darkgray-500);
-    border-right: 2px solid var(--c-darkgray-500);
+  border-left: 2px solid var(--c-darkgray-500);
+  border-right: 2px solid var(--c-darkgray-500);
 }
 
 .gif-container {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
 }
 
 .gif-header {
-    display: flex;
-    gap: 4px;
-    align-items: center;
+  display: flex;
+  gap: 4px;
+  align-items: center;
 }
 
 .gif-header .details-gif {
-    display: grid;
-    place-content: center;
+  display: grid;
+  place-content: center;
 
-    background-color: transparent;
-    border: none;
-    cursor: pointer;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
 }
 
 .gif-title {
-    font-weight: var(--f-bold);
-    font-size: var(--f-s-sm);
+  font-weight: var(--f-bold);
+  font-size: var(--f-s-sm);
 }
 
 .gif-container {
-    position: relative;
+  position: relative;
 }
 
-
 @media screen and (min-width: 736px) {
-    .container {
-        flex-direction: row;
-    }
+  .container {
+    flex-direction: row;
+  }
 
-    .gif-container {
-        width: 500px;
-    }
+  .gif-container {
+    width: 500px;
+  }
 }

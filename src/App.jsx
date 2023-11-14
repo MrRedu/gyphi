@@ -1,22 +1,20 @@
-import { useState } from "react";
+import { useState } from 'react'
 
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, useLocation } from 'react-router-dom'
 
-import { Layout } from "./layout";
+import { Layout } from './layout'
 
-import { DetailsGif } from "@/components/organisms/details-gif/DetailsGif";
-import { CategoryPage, HomePage, NotFoundPage } from "@/components/pages";
-
-import { useLocation } from "react-router-dom";
+import { DetailsGif } from '@/components/organisms/details-gif/DetailsGif'
+import { CategoryPage, HomePage, NotFoundPage } from '@/components/pages'
 
 const App = () => {
-  let { pathname } = useLocation();
-  const [gifsCategory, setGifsCategory] = useState(["One Piece"]);
+  const { pathname } = useLocation()
+  const [gifsCategory, setGifsCategory] = useState(['One Piece'])
 
-  const addCategory = (newGifsCategory) => {
-    if (gifsCategory.includes(newGifsCategory)) return;
-    setGifsCategory([newGifsCategory, ...gifsCategory]);
-  };
+  const addCategory = newGifsCategory => {
+    if (gifsCategory.includes(newGifsCategory)) return
+    setGifsCategory([newGifsCategory, ...gifsCategory])
+  }
 
   return (
     <>
@@ -29,7 +27,7 @@ const App = () => {
         </Routes>
       </Layout>
     </>
-  );
-};
+  )
+}
 
-export default App;
+export default App
