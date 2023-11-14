@@ -9,8 +9,8 @@ export const DetailsUser = ({ user }) => {
     <div className={styles["container"]}>
       <img
         className={styles["avatar"]}
-        src={user.avatar}
-        alt={`Avatar: ${user.name}`}
+        src={user.avatar || "https://i.pravatar.cc/400?img=41"}
+        alt={`Avatar: ${user.name || "Anonymous"}`}
       />
       <div className={styles["user-info"]}>
         <div className={styles["user-header"]}>

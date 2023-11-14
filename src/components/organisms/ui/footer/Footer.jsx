@@ -1,8 +1,5 @@
 import styles from "./Footer.module.css";
-
-import { Code } from "lucide-react";
-import { Github } from "lucide-react";
-
+import { Code, Github } from "lucide-react";
 export const Footer = () => {
   const list = [
     {

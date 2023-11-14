@@ -4,10 +4,10 @@ import { useTrending } from "@/hooks/useTrending";
 import styles from "./TrendingCarousel.module.css";
 
 import { CategoryTitle } from "@/components/molecules/category-title/CategoryTitle";
-import { ChevronRight, ChevronLeft } from "lucide-react";
+import { ChevronRight, ChevronLeft, Link as LinkIcon } from "lucide-react";
 import { Loader } from "@/components/atoms/loader/Loader";
-import { Link } from "lucide-react";
 import { copyToClipboard } from "@/libs/utils";
+import { Link } from "react-router-dom";
 
 export const TrendingCarousel = () => {
   const { trending, loading } = useTrending();
@@ -51,12 +51,18 @@ export const TrendingCarousel = () => {
             {trending &&
               trending.map(({ id, image, title, url }) => (
                 <div key={id} className={styles["trending-gif"]}>
-                  <img className={styles["gif-img"]} src={image} alt={title} />
+                  <Link to={`/gifs/${id}`}>
+                    <img
+                      className={styles["gif-img"]}
+                      src={image}
+                      alt={title}
+                    />
+                  </Link>
                   <button
                     className={styles["copy-btn"]}
                     onClick={() => handleCopy(url)}
                   >
-                    <Link size={20} />
+                    <LinkIcon size={20} />
                   </button>
                 </div>
               ))}
