@@ -3,19 +3,31 @@ import ProTypes from "prop-types";
 import { useState } from "react";
 import styles from "./SearchBar.module.css";
 import { Search } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
-export const SearchBar = ({ addCategory }) => {
+export const SearchBar = ({ addCategory, pathname }) => {
   const [query, setQuery] = useState("");
+
+  const navigate = useNavigate();
 
   const handleChange = (e) => {
     const strg = e.target.value;
     setQuery(strg);
   };
 
+  // Cambiar esto a App.jsx (?)
+  // Pedir ayuda y preguntar si es correcto
+  // Ya que técnicamente, la función de abajo no tiene
+  // que ver directamente con el componente
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (query.trim().length < 2) return;
-    addCategory(query.trim());
+    let strg = query.trim();
+    if (strg.length < 2) return;
+    if (pathname === "/") {
+      addCategory(strg);
+    } else {
+      navigate(`/category/${strg}`);
+    }
     setQuery("");
   };
 
@@ -45,4 +57,5 @@ export const SearchBar = ({ addCategory }) => {
 
 SearchBar.propTypes = {
   addCategory: ProTypes.func,
+  pathname: ProTypes.string,
 };

@@ -7,7 +7,10 @@ import { Layout } from "./layout";
 import { DetailsGif } from "@/components/organisms/details-gif/DetailsGif";
 import { CategoryPage, HomePage, NotFoundPage } from "@/components/pages";
 
+import { useLocation } from "react-router-dom";
+
 const App = () => {
+  let { pathname } = useLocation();
   const [gifsCategory, setGifsCategory] = useState(["One Piece"]);
 
   const addCategory = (newGifsCategory) => {
@@ -17,7 +20,7 @@ const App = () => {
 
   return (
     <>
-      <Layout addCategory={addCategory}>
+      <Layout addCategory={addCategory} pathname={pathname}>
         <Routes>
           <Route path="/" element={<HomePage gifs={gifsCategory} />} />
           <Route path="/gifs/:id" element={<DetailsGif />} />
