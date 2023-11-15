@@ -27,20 +27,20 @@ export const TrendingCarousel = () => {
 
   return (
     <>
-      <div className={styles['container']}>
+      <div className={styles.container}>
         <CategoryTitle text={'Trending'}>
           <img src="/svg/trending.svg" alt="Trending" />
         </CategoryTitle>
 
         <div className={styles['slider-wrapper']}>
           <button
-            className={`${styles['button-slider']} ${styles['left']}`}
+            className={`${styles['button-slider']} ${styles.left}`}
             onClick={handleClickLeft}
           >
             <ChevronLeft color="white" />
           </button>
           <button
-            className={`${styles['button-slider']} ${styles['right']}`}
+            className={`${styles['button-slider']} ${styles.right}`}
             onClick={handleClickRight}
           >
             <ChevronRight color="white" />

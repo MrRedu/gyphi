@@ -1,15 +1,22 @@
 import ProTypes from 'prop-types'
 
 import { GifsGrid } from '@/components/organisms/gifs-grid/GifsGrid'
+import { useGifs } from '@/hooks/useGifs'
 
-export const Category = ({ gifsCategory, numberGifsToRender }) => {
+export const Category = ({ gifsCategory }) => {
+  const { gifs, loading } = useGifs({
+    category: gifsCategory[0],
+    numberGifsToRender: 12,
+  })
+
   return (
     <>
       {gifsCategory.map(category => (
         <GifsGrid
           key={category}
           category={category}
-          numberGifsToRender={numberGifsToRender}
+          gifs={gifs}
+          loading={loading}
         />
       ))}
     </>
@@ -18,5 +25,4 @@ export const Category = ({ gifsCategory, numberGifsToRender }) => {
 
 Category.propTypes = {
   gifsCategory: ProTypes.arrayOf(ProTypes.string).isRequired,
-  numberGifsToRender: ProTypes.number.isRequired,
 }

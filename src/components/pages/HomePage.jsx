@@ -3,15 +3,17 @@ import ProTypes from 'prop-types'
 import { TrendingCarousel } from '@/components/organisms/trending-carousel/TrendingCarousel'
 import { Category } from '@/components/molecules/category/Category'
 
-export const HomePage = ({ gifs }) => {
+export const HomePage = ({ gifsCategories }) => {
   return (
     <>
       <TrendingCarousel />
-      <Category gifsCategory={gifs} numberGifsToRender={12} />
+      {gifsCategories.map(gifsCategory => (
+        <Category key={gifsCategory} gifsCategory={[gifsCategory]} />
+      ))}
     </>
   )
 }
 
 HomePage.propTypes = {
-  gifs: ProTypes.array,
+  gifsCategories: ProTypes.array,
 }
