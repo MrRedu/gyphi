@@ -31,7 +31,7 @@ export function useGifs({ category, numberGifsToRender }) {
     return () => {
       abortController.abort()
     }
-  }, [])
+  }, [category])
 
   return {
     gifs,

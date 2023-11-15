@@ -1,7 +1,5 @@
 import ProTypes from 'prop-types'
 
-import { useGifs } from '@/hooks/useGifs'
-
 import styles from './GifsGrid.module.css'
 
 import { CategoryTitle } from '@/components/molecules/category-title/CategoryTitle'
@@ -10,22 +8,19 @@ import { copyToClipboard } from '@/libs/utils'
 import { Link as LinkIcon } from 'lucide-react'
 import { Link } from 'react-router-dom'
 
-export const GifsGrid = ({ category, numberGifsToRender }) => {
-  const { gifs, loading } = useGifs({ category, numberGifsToRender })
-
+export const GifsGrid = ({ category, gifs, loading }) => {
   const handleCopy = text => {
     copyToClipboard(text)
   }
 
   return (
     <>
-      <div className={styles['container']}>
+      <div className={styles.container}>
         <CategoryTitle text={category} />
 
         <div className={styles['gifs-container']}>
           {loading && <Loader />}
           {gifs &&
-            // gifs.slice(0, 12).map(({ url, title, id }) => {
             gifs.map(({ url, title, id, image }) => {
               return (
                 <div key={id} className={styles['gif-container']}>
@@ -53,5 +48,6 @@ export const GifsGrid = ({ category, numberGifsToRender }) => {
 
 GifsGrid.propTypes = {
   category: ProTypes.string.isRequired,
-  numberGifsToRender: ProTypes.number.isRequired,
+  gifs: ProTypes.array.isRequired,
+  loading: ProTypes.bool,
 }

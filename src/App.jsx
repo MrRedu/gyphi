@@ -11,11 +11,11 @@ const App = () => {
   const { pathname } = useLocation()
   const navigate = useNavigate()
 
-  const [gifsCategory, setGifsCategory] = useState(['One Piece'])
+  const [gifsCategories, setGifsCategories] = useState(['One Piece'])
 
   const addCategory = newGifsCategory => {
-    if (gifsCategory.includes(newGifsCategory)) return
-    setGifsCategory([newGifsCategory, ...gifsCategory])
+    if (gifsCategories.includes(newGifsCategory)) return
+    setGifsCategories([newGifsCategory, ...gifsCategories])
   }
 
   const handleSubmit = (e, query) => {
@@ -35,7 +35,10 @@ const App = () => {
     <>
       <Layout handleSubmit={handleSubmit}>
         <Routes>
-          <Route path="/" element={<HomePage gifs={gifsCategory} />} />
+          <Route
+            path="/"
+            element={<HomePage gifsCategories={gifsCategories} />}
+          />
           <Route path="/gifs/:id" element={<DetailsGif />} />
           <Route path="/category/:category" element={<CategoryPage />} />
           <Route path="*" element={<NotFoundPage />} />
