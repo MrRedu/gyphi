@@ -38,7 +38,7 @@ const App = () => {
           <Route path="/" element={<HomePage gifs={gifsCategory} />} />
           <Route path="/gifs/:id" element={<DetailsGif />} />
           <Route path="/category/:category" element={<CategoryPage />} />
-          <Route path="*" element={<NotFoundPage />} />
+          <Route path="/404" element={<NotFoundPage />} />
         </Routes>
       </Layout>
     </>
