@@ -1,6 +1,9 @@
 .header {
   display: flex;
   padding: 8px 0;
+
+  justify-content: space-between;
+  align-items: center;
 }
 
 .link {

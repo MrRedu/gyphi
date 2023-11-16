@@ -18,11 +18,11 @@ export const Button = ({
           color: color || 'var(--c-whywhite-300)',
           width: width && width,
         }}
-        className={styles['button']}
+        className={styles.button}
         onClick={handleClick}
       >
         {preIcon}
-        <span className={styles['text']}>{children}</span>
+        <span className={styles.text}>{children}</span>
         {postIcon}
       </button>
     </>
