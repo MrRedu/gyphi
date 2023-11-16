@@ -35,5 +35,5 @@ export const Action = ({ icon, subMenu }) => {
 
 Action.propTypes = {
   icon: ProTypes.node.isRequired,
-  subMenu: ProTypes.object.isRequired,
+  subMenu: ProTypes.arrayOf(ProTypes.object).isRequired,
 }
