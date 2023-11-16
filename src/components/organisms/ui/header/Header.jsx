@@ -1,8 +1,7 @@
 import ProTypes from 'prop-types'
 import styles from './Header.module.css'
 import { Link } from 'react-router-dom'
-import { LoginButton } from '@/components/molecules/login-button/LoginButton'
-import { Nav } from '@/components/molecules/nav/Nav'
+import { NavBar } from '@/components/molecules/nav-bar/NavBar'
 export const Header = ({ children }) => {
   return (
     <>
@@ -10,8 +9,7 @@ export const Header = ({ children }) => {
         <Link to="/" className={styles.link}>
           <h1 className={styles.title}>GYPHI</h1>
         </Link>
-        {/* <LoginButton  /> */}
-        <Nav />
+        <NavBar />
       </header>
       {children}
     </>
