@@ -3,8 +3,8 @@ import { getGifsByQuery } from '@/services/gifs'
 
 export function useGifs({ category, numberGifsToRender }) {
   const [gifs, setGifs] = useState([])
-  const [error, setError] = useState(null)
   const [loading, setLoading] = useState(false)
+  const [error, setError] = useState(null)
 
   const getGifs = async ({ query }, { signal }) => {
     if (!query) return
@@ -18,7 +18,7 @@ export function useGifs({ category, numberGifsToRender }) {
       )
       setGifs(gifsByQuery)
     } catch (error) {
-      setError('No se pudieron conseguir los gifs')
+      setError(error)
     } finally {
       setLoading(false)
     }

@@ -21,10 +21,6 @@ export const TrendingCarousel = () => {
     containerRef.current.scrollBy(-500, 0)
   }
 
-  const handleCopy = text => {
-    copyToClipboard(text)
-  }
-
   return (
     <>
       <div className={styles.container}>
@@ -60,7 +56,7 @@ export const TrendingCarousel = () => {
                   </Link>
                   <button
                     className={styles['copy-btn']}
-                    onClick={() => handleCopy(url)}
+                    onClick={() => copyToClipboard(url)}
                   >
                     <LinkIcon size={20} />
                   </button>

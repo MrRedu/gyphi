@@ -9,10 +9,6 @@ import { Link as LinkIcon } from 'lucide-react'
 import { Link } from 'react-router-dom'
 
 export const GifsGrid = ({ category, gifs, loading }) => {
-  const handleCopy = text => {
-    copyToClipboard(text)
-  }
-
   return (
     <>
       <div className={styles.container}>
@@ -33,7 +29,7 @@ export const GifsGrid = ({ category, gifs, loading }) => {
                   </Link>
                   <button
                     className={styles['copy-btn']}
-                    onClick={() => handleCopy(url)}
+                    onClick={() => copyToClipboard(url)}
                   >
                     <LinkIcon size={20} />
                   </button>
