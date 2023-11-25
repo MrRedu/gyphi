@@ -2,6 +2,7 @@ import styles from './NavBar.module.css'
 import { Menu, User, Plus } from 'lucide-react'
 import { Action } from './Action'
 import { Sector } from './Sector'
+import { useState } from 'react'
 
 const actionsMobile = [
   {
@@ -140,13 +141,25 @@ const actionsMobile = [
 ]
 
 export const NavBar = () => {
+  const [isOpenActionId, setIsOpenActionId] = useState()
+
+  const handleActionId = actionId => {
+    setIsOpenActionId(prev => (prev === actionId ? null : actionId))
+  }
+
   return (
     <>
       <nav>
         {/* <div className={styles['nav-desktop']}></div> */}
         <div className={styles['nav-mobile']}>
           {actionsMobile.map(({ id, icon, subMenu }) => (
-            <Action key={id} id={id} icon={icon} subMenu={subMenu}>
+            <Action
+              key={id}
+              id={id}
+              icon={icon}
+              isOpen={isOpenActionId === id}
+              onClick={() => handleActionId(id)}
+            >
               {subMenu.map(({ title, routes }) => (
                 <Sector key={title} title={title} routes={routes} />
               ))}

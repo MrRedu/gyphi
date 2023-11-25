@@ -1,17 +1,10 @@
 import ProTypes from 'prop-types'
 
 import styles from './Action.module.css'
-import { useState } from 'react'
 
-export const Action = ({ id, icon, children }) => {
-  const [isOpen, setIsOpen] = useState()
-
-  const handleClick = () => {
-    setIsOpen(!isOpen)
-  }
-
+export const Action = ({ icon, isOpen, onClick, children }) => {
   return (
-    <div onClick={handleClick} className={styles.action}>
+    <div onClick={onClick} className={styles.action}>
       <button type="button">{icon}</button>
       <div
         className={`${styles['action-dropdown']} ${
@@ -27,5 +20,7 @@ export const Action = ({ id, icon, children }) => {
 Action.propTypes = {
   id: ProTypes.string.isRequired,
   icon: ProTypes.node.isRequired,
+  isOpen: ProTypes.bool.isRequired,
+  onClick: ProTypes.func.isRequired,
   children: ProTypes.node.isRequired,
 }
