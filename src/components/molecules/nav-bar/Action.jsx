@@ -1,39 +1,31 @@
 import ProTypes from 'prop-types'
 
-import { useState } from 'react'
 import styles from './Action.module.css'
-import { Sector } from './Sector'
+import { useState } from 'react'
 
-export const Action = ({ icon, subMenu }) => {
-  const [isOpen, setIsOpen] = useState(false)
+export const Action = ({ id, icon, children }) => {
+  const [isOpen, setIsOpen] = useState()
 
   const handleClick = () => {
     setIsOpen(!isOpen)
   }
 
   return (
-    <div className={styles.action}>
-      <button onClick={handleClick} type="button">
-        {icon}
-      </button>
+    <div onClick={handleClick} className={styles.action}>
+      <button type="button">{icon}</button>
       <div
         className={`${styles['action-dropdown']} ${
-          isOpen ? styles['is-open'] : styles['']
+          isOpen ? styles['is-open'] : ''
         }`}
       >
-        {isOpen && subMenu && (
-          <>
-            {subMenu.map(({ title, routes }) => (
-              <Sector key={title} title={title} routes={routes} />
-            ))}
-          </>
-        )}
+        {children}
       </div>
     </div>
   )
 }
 
 Action.propTypes = {
+  id: ProTypes.string.isRequired,
   icon: ProTypes.node.isRequired,
-  subMenu: ProTypes.arrayOf(ProTypes.object).isRequired,
+  children: ProTypes.node.isRequired,
 }
