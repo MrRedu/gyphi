@@ -4,8 +4,10 @@ import styles from './Action.module.css'
 
 export const Action = ({ icon, isOpen, onClick, children }) => {
   return (
-    <div onClick={onClick} className={styles.action}>
-      <button type="button">{icon}</button>
+    <div className={styles.action}>
+      <button type="button" onClick={onClick}>
+        {icon}
+      </button>
       <div
         className={`${styles['action-dropdown']} ${
           isOpen ? styles['is-open'] : ''
