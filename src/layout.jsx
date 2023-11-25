@@ -5,6 +5,7 @@ import { Toaster } from 'sonner'
 import { Header } from '@/components/organisms/ui/header/Header'
 import { Footer } from '@/components/organisms/ui/footer/Footer'
 import { SearchBar } from '@/components/molecules/search-bar/SearchBar'
+import { LoginButton } from './components/molecules/login-button/LoginButton'
 
 export const Layout = ({ handleSubmit, children }) => {
   return (
@@ -12,6 +13,7 @@ export const Layout = ({ handleSubmit, children }) => {
       <Header>
         <SearchBar onSubmit={handleSubmit} />
       </Header>
+      <LoginButton />
       <main>{children}</main>
       <Toaster
         toastOptions={{
