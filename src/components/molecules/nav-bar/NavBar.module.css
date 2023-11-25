@@ -1,0 +1,10 @@
+.nav-mobile {
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+@media screen and (min-width: 736px) {
+    .nav-mobile {
+        display: none;
+    }
+}

@@ -43,12 +43,12 @@
   display: flex;
 }
 
-.dev-information p > a {
+.dev-information p>a {
   color: var(--c-whywhite-300);
   text-decoration: none;
 }
 
-.dev-information p:hover > a {
+.dev-information p:hover>a {
   text-decoration: underline;
 }
 
