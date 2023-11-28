@@ -60,14 +60,12 @@ const actionsMobile = [
             id: 1,
             // title: session ? 'Log Out' : 'Log In',
             title: 'Log In',
+            route: '/login',
           },
           {
             id: 2,
-            title: 'Sign Up',
-          },
-          {
-            id: 3,
             title: 'Favorites',
+            // route: '/user/favorites'
           },
         ],
       },
