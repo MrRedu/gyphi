@@ -5,11 +5,11 @@ import { Button } from '../button/Button'
 export const LoginButton = () => {
   const { loginWithRedirect, logout, isAuthenticated } = useAuth0()
 
-  const handleLogin = () => {
+  const handleLogIn = () => {
     loginWithRedirect()
   }
 
-  const handleLogout = () => {
+  const handleLogOut = () => {
     logout({ returnTo: window.location.origin })
   }
 
@@ -18,14 +18,14 @@ export const LoginButton = () => {
       {isAuthenticated ? (
         <Button
           preIcon={<LogIn size={20} strokeWidth={2} color="white" />}
-          handleClick={handleLogout}
+          handleClick={handleLogOut}
         >
           Log Out
         </Button>
       ) : (
         <Button
           preIcon={<LogIn size={20} strokeWidth={2} color="white" />}
-          handleClick={handleLogin}
+          handleClick={handleLogIn}
         >
           Log In
         </Button>

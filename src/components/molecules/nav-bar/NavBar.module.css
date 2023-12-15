@@ -1,6 +1,18 @@
 .nav-mobile {
     display: flex;
-    flex-direction: row-reverse;
+
+    gap: 8px;
+}
+
+.picture-link {
+    display: flex;
+    align-items: center;
+}
+
+.picture {
+    width: 32px;
+    height: 32px;
+    border-radius: 4px;
 }
 
 @media screen and (min-width: 736px) {

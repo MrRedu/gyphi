@@ -5,7 +5,12 @@ import { Route, Routes, useLocation, useNavigate } from 'react-router-dom'
 import { Layout } from './layout'
 
 import { DetailsGif } from '@/components/organisms/details-gif/DetailsGif'
-import { CategoryPage, HomePage, NotFoundPage } from '@/components/pages'
+import {
+  CategoryPage,
+  HomePage,
+  NotFoundPage,
+  UserPage,
+} from '@/components/pages'
 
 const App = () => {
   const { pathname } = useLocation()
@@ -39,6 +44,7 @@ const App = () => {
             path="/"
             element={<HomePage gifsCategories={gifsCategories} />}
           />
+          <Route path="/profile" element={<UserPage />} />
           <Route path="/gifs/:id" element={<DetailsGif />} />
           <Route path="/category/:category" element={<CategoryPage />} />
           <Route path="*" element={<NotFoundPage />} />
