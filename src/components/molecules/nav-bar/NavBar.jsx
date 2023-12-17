@@ -5,6 +5,7 @@ import { Sector } from './Sector'
 import { useState } from 'react'
 import { useAuth0 } from '@auth0/auth0-react'
 import { Link } from 'react-router-dom'
+import { LoginButton } from '../login-button/LoginButton'
 
 export const NavBar = () => {
   const [isOpenActionId, setIsOpenActionId] = useState()
@@ -62,10 +63,25 @@ export const NavBar = () => {
   return (
     <>
       <nav>
-        {/* <div className={styles['nav-desktop']}></div> */}
+        <div className={styles['nav-desktop']}>
+          {!user ? (
+            <LoginButton />
+          ) : (
+            user && (
+              <Link to="/user" className={styles['picture-link']}>
+                <img
+                  src={user.picture}
+                  className={styles.picture}
+                  alt="User picture"
+                />
+                <span className={styles['user-name']}>{user.name}</span>
+              </Link>
+            )
+          )}
+        </div>
         <div className={styles['nav-mobile']}>
           {user && (
-            <Link to="/profile" className={styles['picture-link']}>
+            <Link to="/user" className={styles['picture-link']}>
               <img
                 src={user.picture}
                 className={styles.picture}

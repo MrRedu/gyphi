@@ -15,8 +15,26 @@
     border-radius: 4px;
 }
 
+.nav-desktop {
+    display: none;
+}
+
 @media screen and (min-width: 736px) {
     .nav-mobile {
         display: none;
+    }
+
+    .nav-desktop {
+        display: flex;
+    }
+
+    .picture-link {
+        gap: 8px;
+        text-decoration: none;
+        color: var(--c-whywhite-500);
+    }
+
+    .user-name {
+        font-size: var(--f-s-sm);
     }
 }
