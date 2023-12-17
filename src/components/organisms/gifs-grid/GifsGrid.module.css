@@ -23,10 +23,10 @@
   position: relative;
 }
 
-.gif-container:hover .copy-btn {
+.gif-container:hover .copy-btn,
+.gif-container:hover .add-favourite-btn {
   display: grid;
   place-content: center;
-  background-color: #00000085;
 }
 
 .gif-img {
@@ -35,10 +35,17 @@
   object-fit: cover;
 }
 
-.copy-btn {
+.actions-buttons {
   position: absolute;
-  top: 8px;
-  right: 8px;
+
+  top: 0;
+  right: 0;
+
+  display: flex;
+}
+
+.copy-btn,
+.add-favourite-btn {
   padding: 4px;
 
   background-color: transparent;
@@ -49,4 +56,9 @@
   border-radius: 2px;
 
   display: none;
+}
+
+.copy-btn:hover,
+.add-favourite-btn:hover {
+  background-color: #00000085;
 }

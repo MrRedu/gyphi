@@ -5,10 +5,29 @@ import styles from './GifsGrid.module.css'
 import { CategoryTitle } from '@/components/molecules/category-title/CategoryTitle'
 import { Loader } from '@/components/atoms/loader/Loader'
 import { copyToClipboard } from '@/libs/utils'
-import { Link as LinkIcon } from 'lucide-react'
+import { Link as LinkIcon, Heart } from 'lucide-react'
 import { Link } from 'react-router-dom'
 
 export const GifsGrid = ({ category, gifs, loading }) => {
+  const myStorage = window.localStorage
+
+  const handleAddFavourite = ({ id }) => {
+    const favourite = id
+    const favouritesGifs = JSON.parse(myStorage.getItem('favourites'))
+
+    if (myStorage.length === 0) {
+      myStorage.setItem('favourites', JSON.stringify([favourite]))
+    } else {
+      if (favouritesGifs.includes(favourite)) {
+        const filteredGifs = favouritesGifs.filter(gif => gif !== favourite)
+        myStorage.setItem('favourites', JSON.stringify(filteredGifs))
+      } else {
+        favouritesGifs.push(favourite)
+        myStorage.setItem('favourites', JSON.stringify(favouritesGifs))
+      }
+    }
+  }
+  
   return (
     <>
       <div className={styles.container}>
@@ -27,12 +46,20 @@ export const GifsGrid = ({ category, gifs, loading }) => {
                       alt={title}
                     />
                   </Link>
-                  <button
-                    className={styles['copy-btn']}
-                    onClick={() => copyToClipboard(url)}
-                  >
-                    <LinkIcon size={20} />
-                  </button>
+                  <div className={styles['actions-buttons']}>
+                    <button
+                      className={styles['add-favourite-btn']}
+                      onClick={() => handleAddFavourite({ id })}
+                    >
+                      <Heart size={20} />
+                    </button>
+                    <button
+                      className={styles['copy-btn']}
+                      onClick={() => copyToClipboard(url)}
+                    >
+                      <LinkIcon size={20} />
+                    </button>
+                  </div>
                 </div>
               )
             })}
