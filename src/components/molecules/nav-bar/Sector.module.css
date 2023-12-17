@@ -16,3 +16,11 @@
     gap: 6px;
     padding-left: 8px;
 }
+
+.routes li {
+    cursor: pointer;
+}
+
+.routes li:hover {
+    text-decoration: underline;
+}

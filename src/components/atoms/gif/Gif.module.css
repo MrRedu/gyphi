@@ -1,0 +1,46 @@
+.gif-container {
+    width: 100%;
+    height: 160px;
+
+    position: relative;
+}
+
+.gif-container:hover .copy-btn,
+.gif-container:hover .add-favourite-btn {
+    display: grid;
+    place-content: center;
+}
+
+.gif-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.actions-buttons {
+    position: absolute;
+
+    top: 0;
+    right: 0;
+
+    display: flex;
+}
+
+.copy-btn,
+.add-favourite-btn {
+    padding: 4px;
+
+    background-color: transparent;
+    color: var(--c-whywhite-300);
+    border: none;
+    cursor: pointer;
+
+    border-radius: 2px;
+
+    display: none;
+}
+
+.copy-btn:hover,
+.add-favourite-btn:hover {
+    background-color: #00000085;
+}

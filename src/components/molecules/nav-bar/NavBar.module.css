@@ -1,10 +1,40 @@
 .nav-mobile {
     display: flex;
-    flex-direction: row-reverse;
+
+    gap: 8px;
+}
+
+.picture-link {
+    display: flex;
+    align-items: center;
+}
+
+.picture {
+    width: 32px;
+    height: 32px;
+    border-radius: 4px;
+}
+
+.nav-desktop {
+    display: none;
 }
 
 @media screen and (min-width: 736px) {
     .nav-mobile {
         display: none;
+    }
+
+    .nav-desktop {
+        display: flex;
+    }
+
+    .picture-link {
+        gap: 8px;
+        text-decoration: none;
+        color: var(--c-whywhite-500);
+    }
+
+    .user-name {
+        font-size: var(--f-s-sm);
     }
 }
