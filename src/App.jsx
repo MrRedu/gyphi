@@ -16,7 +16,7 @@ const App = () => {
   const { pathname } = useLocation()
   const navigate = useNavigate()
 
-  const [gifsCategories, setGifsCategories] = useState(['One Piece'])
+  const [gifsCategories, setGifsCategories] = useState(['One Piece', 'Nami'])
 
   const addCategory = newGifsCategory => {
     if (gifsCategories.includes(newGifsCategory)) return
@@ -44,7 +44,7 @@ const App = () => {
             path="/"
             element={<HomePage gifsCategories={gifsCategories} />}
           />
-          <Route path="/profile" element={<UserPage />} />
+          <Route path="/user" element={<UserPage />} />
           <Route path="/gifs/:id" element={<DetailsGif />} />
           <Route path="/category/:category" element={<CategoryPage />} />
           <Route path="*" element={<NotFoundPage />} />
