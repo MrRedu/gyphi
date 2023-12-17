@@ -3,8 +3,8 @@ import { getTrendingGifs } from '@/services/gifs'
 
 export function useTrending() {
   const [trending, setTrending] = useState([])
-  const [error, setError] = useState(null)
   const [loading, setLoading] = useState(false)
+  const [error, setError] = useState(null)
 
   const getTrending = async ({ signal }) => {
     try {
@@ -12,7 +12,7 @@ export function useTrending() {
       const trendingGifs = await getTrendingGifs({ signal })
       setTrending(trendingGifs)
     } catch (error) {
-      setError('No se pudieron conseguir los gifs')
+      setError(error)
     } finally {
       setLoading(false)
     }
@@ -29,7 +29,7 @@ export function useTrending() {
 
   return {
     trending,
-    error,
     loading,
+    error,
   }
 }

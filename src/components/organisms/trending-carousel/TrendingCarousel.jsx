@@ -3,11 +3,11 @@ import { useTrending } from '@/hooks/useTrending'
 
 import styles from './TrendingCarousel.module.css'
 
-import { CategoryTitle } from '@/components/molecules/category-title/CategoryTitle'
 import { ChevronRight, ChevronLeft, Link as LinkIcon } from 'lucide-react'
 import { Loader } from '@/components/atoms/loader/Loader'
 import { copyToClipboard } from '@/libs/utils'
 import { Link } from 'react-router-dom'
+import { CategoryTitle } from '@/components/molecules/category-title/CategoryTitle'
 
 export const TrendingCarousel = () => {
   const { trending, loading } = useTrending()
@@ -21,15 +21,14 @@ export const TrendingCarousel = () => {
     containerRef.current.scrollBy(-500, 0)
   }
 
-  const handleCopy = text => {
-    copyToClipboard(text)
-  }
-
   return (
     <>
       <div className={styles.container}>
-        <CategoryTitle text={'Trending'}>
-          <img src="/svg/trending.svg" alt="Trending" />
+        <CategoryTitle>
+          <CategoryTitle.Box>
+            <img src="/svg/trending.svg" alt="Trending" />
+            <CategoryTitle.Title>Trending</CategoryTitle.Title>
+          </CategoryTitle.Box>
         </CategoryTitle>
 
         <div className={styles['slider-wrapper']}>
@@ -60,7 +59,7 @@ export const TrendingCarousel = () => {
                   </Link>
                   <button
                     className={styles['copy-btn']}
-                    onClick={() => handleCopy(url)}
+                    onClick={() => copyToClipboard(url)}
                   >
                     <LinkIcon size={20} />
                   </button>

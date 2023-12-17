@@ -15,8 +15,8 @@ export const Footer = () => {
   ]
 
   return (
-    <footer className={styles['footer']}>
-      <ul className={styles['list']}>
+    <footer className={styles.footer}>
+      <ul className={styles.list}>
         {list.map(({ title, href, icon }) => (
           <li key={title} className={styles['list-item']}>
             <a

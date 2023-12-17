@@ -26,8 +26,6 @@
 
   --c-darkgray-500: #333333;
   --c-darkgray-800: #121212;
-
-
 }
 
 body {
@@ -37,4 +35,15 @@ body {
   max-width: 1080px;
   padding: 0 8px;
   margin: 0 auto;
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+#root> :last-child {
+  /* Pushing down the footer */
+  margin-top: auto;
 }

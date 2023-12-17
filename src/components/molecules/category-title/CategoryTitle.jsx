@@ -1,28 +1,70 @@
-import PropTypes from 'prop-types'
+import propTypes from 'prop-types'
 import styles from './CategoryTitle.module.css'
-import { rightChevron } from '@/libs/lucide'
-import { ChevronRight } from 'lucide-react'
+
 import { Link } from 'react-router-dom'
 
-export const CategoryTitle = ({ text, children }) => {
+const LinkComponent = ({ to, children }) => {
   return (
-    <div className={styles['category-title']}>
-      <Link to={`/category/${text}`} className={styles['title-link']}>
-        {children}
-        <h2 className={styles['title']}>{text}</h2>
-      </Link>
-      <Link to={`/category/${text}`} className={styles['see-all-link']}>
-        <p className={styles['see-all-link']}>All the GIFs</p>
-        <ChevronRight
-          size={rightChevron.size}
-          strokeWidth={rightChevron.strokeWidth}
-        />
-      </Link>
-    </div>
+    <Link className={styles.link} to={to}>
+      {children}
+    </Link>
+  )
+}
+const Box = ({ children }) => {
+  return <div className={styles.box}>{children}</div>
+}
+
+const Title = ({ children }) => {
+  return <h3 className={styles.title}>{children}</h3>
+}
+
+const SecondaryText = ({ children }) => {
+  return <span className={styles['secondary-text']}>{children}</span>
+}
+
+const Button = ({ onClick, children, isActive }) => {
+  return (
+    <button
+      className={`${styles.button} ${isActive ? styles['is-active'] : ''}`}
+      onClick={onClick}
+    >
+      {children}
+    </button>
   )
 }
 
+export const CategoryTitle = ({ children }) => {
+  return <div className={styles.container}>{children}</div>
+}
+
+CategoryTitle.LinkComponent = LinkComponent
+CategoryTitle.Box = Box
+CategoryTitle.Title = Title
+CategoryTitle.Button = Button
+CategoryTitle.SecondaryText = SecondaryText
+
 CategoryTitle.propTypes = {
-  text: PropTypes.string,
-  children: PropTypes.node,
+  children: propTypes.node.isRequired,
+}
+
+LinkComponent.propTypes = {
+  to: propTypes.string.isRequired,
+  children: propTypes.node.isRequired,
+}
+Box.propTypes = {
+  children: propTypes.node.isRequired,
+}
+
+Title.propTypes = {
+  children: propTypes.node.isRequired,
+}
+
+SecondaryText.propTypes = {
+  children: propTypes.node.isRequired,
+}
+
+Button.propTypes = {
+  onClick: propTypes.func.isRequired,
+  children: propTypes.node.isRequired,
+  isActive: propTypes.bool,
 }

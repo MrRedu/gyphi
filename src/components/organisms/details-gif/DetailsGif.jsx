@@ -22,8 +22,8 @@ export const DetailsGif = () => {
     <>
       {loading && <Loader />}
       {gif && (
-        <section className={styles['container']}>
-          <aside className={styles['aside']}>
+        <section className={styles.container}>
+          <aside className={styles.aside}>
             <DetailsUser user={gif.user} />
           </aside>
           <article className={styles['gif-container']}>
