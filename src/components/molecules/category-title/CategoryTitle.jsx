@@ -9,7 +9,7 @@ export const CategoryTitle = ({ text, children }) => {
     <div className={styles['category-title']}>
       <Link to={`/category/${text}`} className={styles['title-link']}>
         {children}
-        <h2 className={styles['title']}>{text}</h2>
+        <h2 className={styles.title}>{text}</h2>
       </Link>
       <Link to={`/category/${text}`} className={styles['see-all-link']}>
         <p className={styles['see-all-link']}>All the GIFs</p>
