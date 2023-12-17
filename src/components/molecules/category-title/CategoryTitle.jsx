@@ -22,8 +22,15 @@ const SecondaryText = ({ children }) => {
   return <span className={styles['secondary-text']}>{children}</span>
 }
 
-const Button = ({ onClick, children }) => {
-  return <button onClick={onClick}>{children}</button>
+const Button = ({ onClick, children, isActive }) => {
+  return (
+    <button
+      className={`${styles.button} ${isActive ? styles['is-active'] : ''}`}
+      onClick={onClick}
+    >
+      {children}
+    </button>
+  )
 }
 
 export const CategoryTitle = ({ children }) => {
@@ -59,4 +66,5 @@ SecondaryText.propTypes = {
 Button.propTypes = {
   onClick: propTypes.func.isRequired,
   children: propTypes.node.isRequired,
+  isActive: propTypes.bool,
 }
