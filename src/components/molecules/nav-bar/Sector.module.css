@@ -17,10 +17,11 @@
     padding-left: 8px;
 }
 
-.routes li {
-    cursor: pointer;
+.routes .link {
+    text-decoration: none;
+    color: white;
 }
 
-.routes li:hover {
+.routes .link:hover {
     text-decoration: underline;
 }

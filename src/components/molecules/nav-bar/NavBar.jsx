@@ -41,23 +41,19 @@ export const NavBar = () => {
           ],
         },
         {
-          title: 'Stickers',
+          title: 'Second title',
           routes: [
             {
               id: 1,
-              title: 'Originals',
+              title: 'First option',
             },
             {
               id: 2,
-              title: 'Trending',
+              title: 'Second option',
             },
             {
               id: 3,
-              title: 'Reactions',
-            },
-            {
-              id: 4,
-              title: 'Favorites',
+              title: 'Third option',
             },
           ],
         },
