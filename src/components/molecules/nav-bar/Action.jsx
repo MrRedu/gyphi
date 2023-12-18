@@ -5,7 +5,7 @@ import styles from './Action.module.css'
 export const Action = ({ icon, isOpen, onClick, children }) => {
   return (
     <div className={styles.action}>
-      <button type="button" onClick={onClick}>
+      <button type="button" onClick={onClick} className={styles.button}>
         {icon}
       </button>
       <div
