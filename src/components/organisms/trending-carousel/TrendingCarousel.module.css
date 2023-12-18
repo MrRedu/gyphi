@@ -3,7 +3,7 @@
   flex-direction: column;
   gap: 8px;
 
-  margin: 12px 0;
+  margin: 16px 0;
 }
 
 .slider-wrapper {
@@ -39,11 +39,9 @@
   left: 0;
 
   background: rgb(18, 18, 18);
-  background: linear-gradient(
-    90deg,
-    rgba(18, 18, 18, 1) 0%,
-    rgba(0, 0, 0, 0) 100%
-  );
+  background: linear-gradient(90deg,
+      rgba(18, 18, 18, 1) 0%,
+      rgba(0, 0, 0, 0) 100%);
 }
 
 .button-slider.right {
@@ -51,11 +49,9 @@
   right: 0;
 
   background: rgb(18, 18, 18);
-  background: linear-gradient(
-    270deg,
-    rgba(18, 18, 18, 1) 0%,
-    rgba(0, 0, 0, 0) 100%
-  );
+  background: linear-gradient(270deg,
+      rgba(18, 18, 18, 1) 0%,
+      rgba(0, 0, 0, 0) 100%);
 }
 
 .trending-gif {
