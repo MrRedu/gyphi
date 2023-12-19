@@ -35,12 +35,14 @@
     place-content: center;
 
     padding: 4px;
-    background-color: transparent;
     border: none;
     cursor: pointer;
+    background-color: transparent;
+    color: var(--c-gray-500);
 }
 
 .button.is-active {
     background-color: var(--c-darkgray-500);
+    color: var(--c-whywhite-300);
     border-radius: 4px;
 }

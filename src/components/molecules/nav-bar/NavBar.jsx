@@ -1,11 +1,12 @@
 import styles from './NavBar.module.css'
-import { Menu } from 'lucide-react'
+import { Menu, LogOut } from 'lucide-react'
 import { Action } from './Action'
 import { Sector } from './Sector'
 import { useState } from 'react'
 import { useAuth0 } from '@auth0/auth0-react'
 import { Link } from 'react-router-dom'
 import { LoginButton } from '../login-button/LoginButton'
+import { rightChevron } from '@/libs/lucide'
 
 export const NavBar = () => {
   const [isOpenActionId, setIsOpenActionId] = useState()
@@ -14,13 +15,17 @@ export const NavBar = () => {
     setIsOpenActionId(prev => (prev === actionId ? null : actionId))
   }
 
-  const { user } = useAuth0()
+  const { user, logout } = useAuth0()
 
-  const actionsMobile = [
+  const handleLogout = () => {
+    logout({ returnTo: window.location.origin })
+  }
+
+  const navBarMobile = [
     {
-      id: '2',
+      id: '1',
       icon: <Menu />,
-      subMenu: [
+      category: [
         {
           title: 'Account',
           routes: [
@@ -36,23 +41,19 @@ export const NavBar = () => {
           ],
         },
         {
-          title: 'Stickers',
+          title: 'Second title',
           routes: [
             {
               id: 1,
-              title: 'Originals',
+              title: 'First option',
             },
             {
               id: 2,
-              title: 'Trending',
+              title: 'Second option',
             },
             {
               id: 3,
-              title: 'Reactions',
-            },
-            {
-              id: 4,
-              title: 'Favorites',
+              title: 'Third option',
             },
           ],
         },
@@ -64,11 +65,9 @@ export const NavBar = () => {
     <>
       <nav>
         <div className={styles['nav-desktop']}>
-          {!user ? (
-            <LoginButton />
-          ) : (
-            user && (
-              <Link to="/user" className={styles['picture-link']}>
+          {user ? (
+            <>
+              <Link to="/profile" className={styles['picture-link']}>
                 <img
                   src={user.picture}
                   className={styles.picture}
@@ -76,12 +75,23 @@ export const NavBar = () => {
                 />
                 <span className={styles['user-name']}>{user.name}</span>
               </Link>
-            )
+              <button
+                className={styles['logout-button']}
+                onClick={handleLogout}
+              >
+                <LogOut size={rightChevron.size} />
+              </button>
+            </>
+          ) : (
+            <>
+              <LoginButton />
+            </>
           )}
         </div>
+
         <div className={styles['nav-mobile']}>
           {user && (
-            <Link to="/user" className={styles['picture-link']}>
+            <Link to="/profile" className={styles['picture-link']}>
               <img
                 src={user.picture}
                 className={styles.picture}
@@ -89,7 +99,7 @@ export const NavBar = () => {
               />
             </Link>
           )}
-          {actionsMobile.map(({ id, icon, subMenu }) => (
+          {navBarMobile.map(({ id, icon, category }) => (
             <Action
               key={id}
               id={id}
@@ -97,7 +107,7 @@ export const NavBar = () => {
               isOpen={isOpenActionId === id}
               onClick={() => handleActionId(id)}
             >
-              {subMenu.map(({ title, routes, path }) => (
+              {category.map(({ title, routes, path }) => (
                 <Sector key={title} title={title} routes={routes} path={path} />
               ))}
             </Action>

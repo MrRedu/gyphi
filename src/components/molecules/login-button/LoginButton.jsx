@@ -10,11 +10,7 @@ export const LoginButton = () => {
   }
 
   const handleLogOut = () => {
-    logout({
-      logoutParams: {
-        returnTo: window.location.origin,
-      },
-    })
+    logout({ returnTo: window.location.origin })
   }
 
   return (

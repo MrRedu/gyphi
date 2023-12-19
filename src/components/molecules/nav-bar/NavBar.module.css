@@ -26,6 +26,8 @@
 
     .nav-desktop {
         display: flex;
+        align-items: center;
+        gap: 16px;
     }
 
     .picture-link {
@@ -36,5 +38,14 @@
 
     .user-name {
         font-size: var(--f-s-sm);
+    }
+
+    .nav-desktop .logout-button {
+        display: grid;
+        place-items: center;
+        background-color: transparent;
+        border: none;
+        cursor: pointer;
+        color: var(--c-gray-500);
     }
 }
