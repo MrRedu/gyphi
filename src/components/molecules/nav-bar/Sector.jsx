@@ -9,7 +9,7 @@ export const Sector = ({ title, routes }) => {
         <h3 className={styles.title}>{title}</h3>
         <div className={styles.routes}>
           {routes.map(({ id, title, path }) => (
-            <Link key={id} to={path}>
+            <Link key={id} to={path} className={styles.link}>
               {title}
             </Link>
           ))}

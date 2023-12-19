@@ -26,6 +26,9 @@
 
   --c-darkgray-500: #333333;
   --c-darkgray-800: #121212;
+
+  --c-java-500: #23d5ab;
+  --c-cerise-500: #e73c7e;
 }
 
 body {

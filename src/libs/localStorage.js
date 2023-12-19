@@ -15,7 +15,7 @@ export const addIdGifToLocalStorage = id => {
       LOCAL_STORAGE.setItem('favourites', JSON.stringify(filteredGifs))
       toast.error('Deleted from favourites')
     } else {
-      favouritesGifs.push(favourite)
+      favouritesGifs.unshift(favourite)
       LOCAL_STORAGE.setItem('favourites', JSON.stringify(favouritesGifs))
       toast.success('Added to favourites')
     }

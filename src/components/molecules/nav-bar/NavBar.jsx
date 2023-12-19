@@ -21,11 +21,11 @@ export const NavBar = () => {
     logout({ returnTo: window.location.origin })
   }
 
-  const actionsMobile = [
+  const navBarMobile = [
     {
       id: '1',
       icon: <Menu />,
-      subMenu: [
+      category: [
         {
           title: 'Account',
           routes: [
@@ -41,23 +41,19 @@ export const NavBar = () => {
           ],
         },
         {
-          title: 'Stickers',
+          title: 'Second title',
           routes: [
             {
               id: 1,
-              title: 'Originals',
+              title: 'First option',
             },
             {
               id: 2,
-              title: 'Trending',
+              title: 'Second option',
             },
             {
               id: 3,
-              title: 'Reactions',
-            },
-            {
-              id: 4,
-              title: 'Favorites',
+              title: 'Third option',
             },
           ],
         },
@@ -92,6 +88,7 @@ export const NavBar = () => {
             </>
           )}
         </div>
+
         <div className={styles['nav-mobile']}>
           {user && (
             <Link to="/profile" className={styles['picture-link']}>
@@ -102,7 +99,7 @@ export const NavBar = () => {
               />
             </Link>
           )}
-          {actionsMobile.map(({ id, icon, subMenu }) => (
+          {navBarMobile.map(({ id, icon, category }) => (
             <Action
               key={id}
               id={id}
@@ -110,7 +107,7 @@ export const NavBar = () => {
               isOpen={isOpenActionId === id}
               onClick={() => handleActionId(id)}
             >
-              {subMenu.map(({ title, routes, path }) => (
+              {category.map(({ title, routes, path }) => (
                 <Sector key={title} title={title} routes={routes} path={path} />
               ))}
             </Action>

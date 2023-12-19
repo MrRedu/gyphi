@@ -10,6 +10,7 @@ import {
   HomePage,
   NotFoundPage,
   UserPage,
+  LoginPage,
 } from '@/components/pages'
 
 const App = () => {
@@ -44,6 +45,7 @@ const App = () => {
             path="/"
             element={<HomePage gifsCategories={gifsCategories} />}
           />
+          <Route path="/login" element={<LoginPage />} />
           <Route path="/profile" element={<UserPage />} />
           <Route path="/gifs/:id" element={<DetailsGif />} />
           <Route path="/category/:category" element={<CategoryPage />} />

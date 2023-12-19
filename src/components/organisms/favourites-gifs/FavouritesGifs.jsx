@@ -70,8 +70,11 @@ export const FavouritesGifs = () => {
                 }
           }
         >
-          {myFavourites &&
-            myFavourites.map(id => <FavoriteGif key={id} id={id} />)}
+          {myFavourites.length > 0 ? (
+            myFavourites.map(id => <FavoriteGif key={id} id={id} />)
+          ) : (
+            <p>No favourites ⭐</p>
+          )}
         </div>
       </section>
     </>
