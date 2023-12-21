@@ -9,7 +9,7 @@ import { addIdGifToLocalStorage } from '@/libs/localStorage'
 import { useAuth0 } from '@auth0/auth0-react'
 
 export const Gif = ({ url, title, id, image }) => {
-  const { isAuthenticated } = useAuth0()
+  const { user } = useAuth0()
 
   return (
     <div key={id} className={styles['gif-container']}>
@@ -17,7 +17,7 @@ export const Gif = ({ url, title, id, image }) => {
         <img className={styles['gif-img']} src={image} alt={title} />
       </Link>
       <div className={styles['actions-buttons']}>
-        {isAuthenticated && (
+        {user && (
           <>
             <button
               className={styles['add-favourite-btn']}
