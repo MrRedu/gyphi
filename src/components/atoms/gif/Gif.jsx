@@ -8,11 +8,11 @@ import { copyToClipboard } from '@/libs/utils'
 import { addIdGifToLocalStorage } from '@/libs/localStorage'
 import { useAuth0 } from '@auth0/auth0-react'
 
-export const Gif = ({ url, title, id, image }) => {
+export const Gif = ({ url, title, id, image, className }) => {
   const { user } = useAuth0()
 
   return (
-    <div key={id} className={styles['gif-container']}>
+    <div key={id} className={`${styles['gif-container']} ${className}`}>
       <Link to={`/gifs/${id}`}>
         <img className={styles['gif-img']} src={image} alt={title} />
       </Link>
@@ -43,4 +43,5 @@ Gif.propTypes = {
   title: propTypes.string.isRequired,
   id: propTypes.string.isRequired,
   image: propTypes.string.isRequired,
+  className: propTypes.string,
 }
