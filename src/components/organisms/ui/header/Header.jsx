@@ -11,7 +11,7 @@ export const Header = ({ children }) => {
         </Link>
         <NavBar />
       </header>
-      {children}
+      <div className={styles['search-bar']}>{children}</div>
     </>
   )
 }
