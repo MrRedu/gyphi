@@ -13,6 +13,7 @@ import {
   LoginPage,
 } from '@/components/pages'
 import { ProtectedRoute } from './components/hoc/ProtectedRoute'
+import { toast } from 'sonner'
 
 const App = () => {
   const { pathname } = useLocation()
@@ -29,7 +30,8 @@ const App = () => {
     e.preventDefault()
 
     const strg = query.trim()
-    if (strg.length < 2) return
+    if (strg.length < 3)
+      return toast.error('Please enter at least 3 characters')
 
     if (pathname === '/') {
       addCategory(strg)

@@ -12,7 +12,7 @@ export const Layout = ({ handleSubmit, children }) => {
       <Header>
         <SearchBar onSubmit={handleSubmit} />
       </Header>
-      <main>{children}</main>
+      <main style={{ padding: '0 8px' }}>{children}</main>
       <Toaster
         toastOptions={{
           className: 'my-toast',
@@ -22,6 +22,7 @@ export const Layout = ({ handleSubmit, children }) => {
           },
         }}
         theme="dark"
+        // position="top-center"
       />
       <Footer />
     </>
