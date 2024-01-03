@@ -8,9 +8,6 @@
 
 .aside {
   display: flex;
-
-  border-left: 2px solid var(--c-darkgray-500);
-  border-right: 2px solid var(--c-darkgray-500);
 }
 
 .gif-container {

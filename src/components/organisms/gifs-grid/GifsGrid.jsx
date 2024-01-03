@@ -7,6 +7,7 @@ import { Gif } from '@/components/atoms/gif/Gif'
 import { CategoryTitle } from '@/components/molecules/category-title/CategoryTitle'
 import { ChevronRight } from 'lucide-react'
 import { rightChevron } from '@/libs/lucide'
+import { NoStringFound } from '@/components/molecules/no-string-found/NoStringFound'
 
 export const GifsGrid = ({ category, gifs, loading }) => {
   return (
@@ -29,6 +30,16 @@ export const GifsGrid = ({ category, gifs, loading }) => {
 
         <div className={styles['gifs-container']}>
           {loading && <Loader />}
+          {gifs.length < 1 && !loading && (
+            <NoStringFound>
+              <NoStringFound.PrincipalText>
+                No GIFs found
+              </NoStringFound.PrincipalText>
+              <NoStringFound.SecondaryText>
+                Try with another category
+              </NoStringFound.SecondaryText>
+            </NoStringFound>
+          )}
           {gifs &&
             gifs.map(({ url, title, id, image }) => {
               return (

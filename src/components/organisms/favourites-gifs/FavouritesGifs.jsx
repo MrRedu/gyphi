@@ -8,6 +8,7 @@ import { useGif } from '@/hooks/useGifs'
 import { rightChevron } from '@/libs/lucide'
 import { StretchHorizontal, LayoutGrid } from 'lucide-react'
 import { useState } from 'react'
+import { NoStringFound } from '@/components/molecules/no-string-found/NoStringFound'
 
 const myStorage = window.localStorage
 const myFavourites = JSON.parse(myStorage.getItem('favourites'))
@@ -72,7 +73,14 @@ export const FavouritesGifs = () => {
           {myFavourites.length > 0 ? (
             myFavourites.map(id => <FavoriteGif key={id} id={id} />)
           ) : (
-            <p>No favourites ⭐</p>
+            <NoStringFound>
+              <NoStringFound.PrincipalText>
+                No favourites GIFs added yet
+              </NoStringFound.PrincipalText>
+              <NoStringFound.SecondaryText>
+                Add some to your collection
+              </NoStringFound.SecondaryText>
+            </NoStringFound>
           )}
         </div>
       </section>

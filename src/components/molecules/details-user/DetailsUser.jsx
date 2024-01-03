@@ -6,9 +6,9 @@ import { ShieldCheck, ShieldOff } from 'lucide-react'
 
 export const DetailsUser = ({ user }) => {
   return (
-    <div className={styles['container']}>
+    <div className={styles.container}>
       <img
-        className={styles['avatar']}
+        className={styles.avatar}
         src={user.avatar || 'https://i.pravatar.cc/400?img=41'}
         alt={`Avatar: ${user.name || 'Anonymous'}`}
       />
