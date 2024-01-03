@@ -36,7 +36,6 @@ body {
   color: var(--c-whywhite-300);
   font-family: var(--f-main);
   max-width: 1080px;
-  padding: 0 8px;
   margin: 0 auto;
 }
 

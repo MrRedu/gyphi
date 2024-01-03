@@ -30,13 +30,13 @@ export const FavouritesGifs = () => {
     setIsGridLayout(true)
   }
 
-  const handleIsStrechLayout = () => {
+  const handleIsStretchLayout = () => {
     setIsGridLayout(false)
   }
 
   return (
     <>
-      <section className={styles.favourites}>
+      <section className={styles.container}>
         <CategoryTitle>
           <CategoryTitle.Box>
             <CategoryTitle.Title>My Collections</CategoryTitle.Title>
@@ -49,7 +49,7 @@ export const FavouritesGifs = () => {
               <LayoutGrid size={rightChevron.size} />
             </CategoryTitle.Button>
             <CategoryTitle.Button
-              onClick={handleIsStrechLayout}
+              onClick={handleIsStretchLayout}
               isActive={!isGridLayout}
             >
               <StretchHorizontal size={rightChevron.size} />
@@ -61,14 +61,13 @@ export const FavouritesGifs = () => {
           style={
             isGridLayout
               ? {
-                  display: 'grid',
                   gridTemplateColumns: 'repeat(auto-fit, minmax(160px, 1fr))',
                 }
               : {
-                  display: 'grid',
                   gridTemplateColumns: 'repeat(auto-fit, minmax(100%, 1fr))',
                 }
           }
+          className={styles['gifs-container']}
         >
           {myFavourites.length > 0 ? (
             myFavourites.map(id => <FavoriteGif key={id} id={id} />)

@@ -1,8 +1,13 @@
-.favourites {
+.container {
     width: 100%;
     margin-top: 32px;
 
     display: flex;
     flex-direction: column;
+    gap: 8px;
+}
+
+.gifs-container {
+    display: grid;
     gap: 8px;
 }
