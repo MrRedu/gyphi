@@ -1,5 +1,5 @@
 import { useAuth0 } from '@auth0/auth0-react'
-import { LogIn } from 'lucide-react'
+import { LogIn, LogOut } from 'lucide-react'
 import { Button } from '../button/Button'
 
 export const LoginButton = () => {
@@ -17,17 +17,18 @@ export const LoginButton = () => {
     <>
       {isAuthenticated ? (
         <Button
-          preIcon={<LogIn size={20} strokeWidth={2} color="white" />}
+          preIcon={<LogOut size={20} strokeWidth={2} color="white" />}
           handleClick={handleLogOut}
         >
-          Log Out
+          {/* Log Out */}
         </Button>
       ) : (
         <Button
           preIcon={<LogIn size={20} strokeWidth={2} color="white" />}
           handleClick={handleLogIn}
+          width="fit-content"
         >
-          Log In
+          {/* Log In */}
         </Button>
       )}
     </>

@@ -4,9 +4,9 @@ export const Button = ({
   preIcon,
   postIcon,
   handleClick,
-  width,
-  background,
-  color,
+  width = '100%',
+  background = 'var(--c-darkgray-700)',
+  color = 'var(--c-whywhite-300)',
   children,
 }) => {
   return (
@@ -14,9 +14,9 @@ export const Button = ({
       <button
         type="button"
         style={{
-          background: background || 'var(--c-darkgray-500)',
-          color: color || 'var(--c-whywhite-300)',
-          width: width && width,
+          backgroundColor: `${background}`,
+          color: `${color}`,
+          width: `${width}`,
         }}
         className={styles.button}
         onClick={handleClick}

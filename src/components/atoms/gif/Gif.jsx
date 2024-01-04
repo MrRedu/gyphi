@@ -10,10 +10,12 @@ import { useLocalStorage } from '@/hooks/useLocalStorage'
 
 export const Gif = ({ url, title, id, image, className }) => {
   const { user } = useAuth0()
-  const [_, setFavouriteGifs] = useLocalStorage({
+  const [favouriteGifs, setFavouriteGifs] = useLocalStorage({
     key: 'favourites',
     initialValue: [],
   })
+
+  const isFavourite = favouriteGifs.includes(id)
 
   return (
     <div key={id} className={`${styles['gif-container']} ${className}`}>
@@ -27,7 +29,7 @@ export const Gif = ({ url, title, id, image, className }) => {
             className={styles['add-favourite-btn']}
             onClick={() => setFavouriteGifs(id)}
           >
-            <Heart size={20} />
+            <Heart size={20} fill={isFavourite ? 'red' : 'transparent'} />
           </button>
         )}
         <button

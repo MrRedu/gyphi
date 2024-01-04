@@ -7,7 +7,6 @@ import { useState } from 'react'
 import { NoStringFound } from '@/components/molecules/no-string-found/NoStringFound'
 import { FavoriteGif } from '@/components/molecules/favorite-gif/FavoriteGif'
 import { useLocalStorage } from '@/hooks/useLocalStorage'
-import { useEffect } from 'react'
 
 export const FavouritesGifs = () => {
   const [isGridLayout, setIsGridLayout] = useState(true)
@@ -22,10 +21,6 @@ export const FavouritesGifs = () => {
     key: 'favourites',
     initialValue: [],
   })
-
-  // useEffect(() => {
-  //   console.log(favouriteGifs)
-  // }, [favouriteGifs])
 
   return (
     <>
