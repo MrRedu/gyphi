@@ -22,7 +22,7 @@ export const Button = ({
         onClick={handleClick}
       >
         {preIcon}
-        <span className={styles.text}>{children}</span>
+        {children && <span className={styles.text}>{children}</span>}
         {postIcon}
       </button>
     </>
