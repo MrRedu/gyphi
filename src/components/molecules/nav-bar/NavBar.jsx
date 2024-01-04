@@ -37,26 +37,27 @@ export const NavBar = () => {
             {
               id: 3,
               title: 'Favorites',
+              path: '/profile',
             },
           ],
         },
-        {
-          title: 'Second title',
-          routes: [
-            {
-              id: 1,
-              title: 'First option',
-            },
-            {
-              id: 2,
-              title: 'Second option',
-            },
-            {
-              id: 3,
-              title: 'Third option',
-            },
-          ],
-        },
+        // {
+        //   title: 'Second title',
+        //   routes: [
+        //     {
+        //       id: 1,
+        //       title: 'First option',
+        //     },
+        //     {
+        //       id: 2,
+        //       title: 'Second option',
+        //     },
+        //     {
+        //       id: 3,
+        //       title: 'Third option',
+        //     },
+        //   ],
+        // },
       ],
     },
   ]
@@ -108,7 +109,13 @@ export const NavBar = () => {
               onClick={() => handleActionId(id)}
             >
               {category.map(({ title, routes, path }) => (
-                <Sector key={title} title={title} routes={routes} path={path} />
+                <Sector
+                  onClick={handleActionId}
+                  key={title}
+                  title={title}
+                  routes={routes}
+                  path={path}
+                />
               ))}
             </Action>
           ))}

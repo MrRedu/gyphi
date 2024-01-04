@@ -8,6 +8,10 @@
     margin: 12px 0;
 }
 
+.logout-button-in-mobile {
+    align-self: flex-end;
+}
+
 .picture {
     width: 96px;
     height: 96px;
@@ -22,4 +26,10 @@
     background: -webkit-linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+}
+
+@media screen and (min-width: 736px) {
+    .logout-button-in-mobile {
+        display: none;
+    }
 }

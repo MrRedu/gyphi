@@ -19,17 +19,14 @@ export const LoginButton = () => {
         <Button
           preIcon={<LogOut size={20} strokeWidth={2} color="white" />}
           handleClick={handleLogOut}
-        >
-          {/* Log Out */}
-        </Button>
+          width="fit-content"
+        />
       ) : (
         <Button
           preIcon={<LogIn size={20} strokeWidth={2} color="white" />}
           handleClick={handleLogIn}
           width="fit-content"
-        >
-          {/* Log In */}
-        </Button>
+        />
       )}
     </>
   )

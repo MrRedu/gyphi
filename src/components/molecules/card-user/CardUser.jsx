@@ -1,5 +1,6 @@
 import propTypes from 'prop-types'
 import styles from './CardUser.module.css'
+import { LoginButton } from '../login-button/LoginButton'
 
 export const CardUser = ({ picture, name, nickname, email }) => {
   return (
@@ -13,6 +14,9 @@ export const CardUser = ({ picture, name, nickname, email }) => {
             <p>{email}</p>
           </div>
         </section>
+        <div className={styles['logout-button-in-mobile']}>
+          <LoginButton />
+        </div>
       </div>
     </>
   )
