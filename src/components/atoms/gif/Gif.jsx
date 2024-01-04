@@ -5,11 +5,17 @@ import { Link as LinkIcon, Heart } from 'lucide-react'
 import { Link } from 'react-router-dom'
 
 import { copyToClipboard } from '@/libs/utils'
-import { addIdGifToLocalStorage } from '@/libs/localStorage'
 import { useAuth0 } from '@auth0/auth0-react'
+import { useLocalStorage } from '@/hooks/useLocalStorage'
 
 export const Gif = ({ url, title, id, image, className }) => {
   const { user } = useAuth0()
+  const [favouriteGifs, setFavouriteGifs] = useLocalStorage({
+    key: 'favourites',
+    initialValue: [],
+  })
+
+  const isFavourite = favouriteGifs.includes(id)
 
   return (
     <div key={id} className={`${styles['gif-container']} ${className}`}>
@@ -18,16 +24,16 @@ export const Gif = ({ url, title, id, image, className }) => {
       </Link>
       <div className={styles['actions-buttons']}>
         {user && (
-          <>
-            <button
-              className={styles['add-favourite-btn']}
-              onClick={() => addIdGifToLocalStorage(id)}
-            >
-              <Heart size={20} />
-            </button>
-          </>
+          <button
+            type="button"
+            className={styles['add-favourite-btn']}
+            onClick={() => setFavouriteGifs(id)}
+          >
+            <Heart size={20} fill={isFavourite ? 'red' : 'transparent'} />
+          </button>
         )}
         <button
+          type="button"
           className={styles['copy-btn']}
           onClick={() => copyToClipboard(url)}
         >
@@ -44,4 +50,5 @@ Gif.propTypes = {
   id: propTypes.string.isRequired,
   image: propTypes.string.isRequired,
   className: propTypes.string,
+  handleAddFavourite: propTypes.func,
 }

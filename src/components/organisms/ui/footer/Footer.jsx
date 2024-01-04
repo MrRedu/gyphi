@@ -39,10 +39,9 @@ export const Footer = () => {
           </a>
         </p>
       </div>
-      <div className={styles['copyright']}>
+      <div className={styles.copyright}>
         <p>Copyright © {new Date().getFullYear()} - All rights reserved</p>
       </div>
     </footer>
   )
 }
-Footer.propTypes = {}

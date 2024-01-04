@@ -1,3 +1,4 @@
+import propTypes from 'prop-types'
 import styles from './CardUser.module.css'
 
 export const CardUser = ({ picture, name, nickname, email }) => {
@@ -15,4 +16,11 @@ export const CardUser = ({ picture, name, nickname, email }) => {
       </div>
     </>
   )
+}
+
+CardUser.propTypes = {
+  picture: propTypes.string.isRequired,
+  name: propTypes.string.isRequired,
+  nickname: propTypes.string.isRequired,
+  email: propTypes.string.isRequired,
 }
